@@ -45,7 +45,9 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
     public function it_can_release_a_new_version()
     {
         $adapter = $this->fakeAdapter();
-        $this->artisan('changelog:release v1.0.2');
+        $this->artisan('changelog:release', [
+            'version' => 'v1.0.2'
+        ]);
 
         $releases = $adapter->all('fake-folder');
         $versions = collect($releases)->map(function (Release $release) {
