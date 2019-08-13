@@ -42,20 +42,20 @@ class ReleaseTest extends TestCase
     {
         $release = new Release('v1');
         $release->add(new Feature([
-            new Change('AAA', '-'),
-            new Change('DDD', '-'),
+            new Change('aaa', '-'),
+            new Change('ddd', '-'),
         ]));
         $release->add(new Feature([
-            new Change('CCC', '-'),
-            new Change('BBB', '-'),
+            new Change('ccc', '-'),
+            new Change('bbb', '-'),
         ]));
 
         $changes = $release->changes();
 
-        $this->assertEquals('AAA', $changes[0]->type());
-        $this->assertEquals('BBB', $changes[1]->type());
-        $this->assertEquals('CCC', $changes[2]->type());
-        $this->assertEquals('DDD', $changes[3]->type());
+        $this->assertEquals('aaa', $changes[0]->type());
+        $this->assertEquals('bbb', $changes[1]->type());
+        $this->assertEquals('ccc', $changes[2]->type());
+        $this->assertEquals('ddd', $changes[3]->type());
     }
 
     /** @test */
@@ -63,20 +63,20 @@ class ReleaseTest extends TestCase
     {
         $release = new Release('v1');
         $release->add(new Feature([
-            new Change('-', 'AAA'),
-            new Change('-', 'DDD'),
+            new Change('-', 'aaa'),
+            new Change('-', 'ddd'),
         ]));
         $release->add(new Feature([
-            new Change('-', 'CCC'),
-            new Change('-', 'BBB'),
+            new Change('-', 'ccc'),
+            new Change('-', 'bbb'),
         ]));
 
         $changes = $release->changes();
 
-        $this->assertEquals('AAA', $changes[0]->message());
-        $this->assertEquals('BBB', $changes[1]->message());
-        $this->assertEquals('CCC', $changes[2]->message());
-        $this->assertEquals('DDD', $changes[3]->message());
+        $this->assertEquals('aaa', $changes[0]->message());
+        $this->assertEquals('bbb', $changes[1]->message());
+        $this->assertEquals('ccc', $changes[2]->message());
+        $this->assertEquals('ddd', $changes[3]->message());
     }
 
     /** @test */
@@ -84,23 +84,23 @@ class ReleaseTest extends TestCase
     {
         $release = new Release('v1');
         $release->add(new Feature([
-            new Change('AAA', 'AAA'),
-            new Change('BBB', 'DDD'),
+            new Change('aaa', 'aaa'),
+            new Change('bbb', 'ddd'),
         ]));
         $release->add(new Feature([
-            new Change('BBB', 'CCC'),
-            new Change('AAA', 'BBB'),
+            new Change('bbb', 'ccc'),
+            new Change('aaa', 'bbb'),
         ]));
 
         $changes = $release->changes();
 
-        $this->assertEquals('AAA', $changes[0]->type());
-        $this->assertEquals('AAA', $changes[0]->message());
-        $this->assertEquals('AAA', $changes[1]->type());
-        $this->assertEquals('BBB', $changes[1]->message());
-        $this->assertEquals('BBB', $changes[2]->type());
-        $this->assertEquals('CCC', $changes[2]->message());
-        $this->assertEquals('BBB', $changes[3]->type());
-        $this->assertEquals('DDD', $changes[3]->message());
+        $this->assertEquals('aaa', $changes[0]->type());
+        $this->assertEquals('aaa', $changes[0]->message());
+        $this->assertEquals('aaa', $changes[1]->type());
+        $this->assertEquals('bbb', $changes[1]->message());
+        $this->assertEquals('bbb', $changes[2]->type());
+        $this->assertEquals('ccc', $changes[2]->message());
+        $this->assertEquals('bbb', $changes[3]->type());
+        $this->assertEquals('ddd', $changes[3]->message());
     }
 }

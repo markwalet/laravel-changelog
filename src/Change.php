@@ -22,7 +22,7 @@ class Change
      */
     public function __construct(string $type, string $message)
     {
-        $this->type = $type;
+        $this->type = strtolower($type);
         $this->message = $message;
     }
 
