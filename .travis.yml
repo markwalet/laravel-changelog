@@ -18,9 +18,10 @@ env: # Testing from the latest LTS release to the latest minor version.
   - ILLUMINATE_VERSION=5.8.* PHPUNIT_VERSION=^7.5
 
 before_install: # Update requirements to fit environment variables.
+  - composer require "illuminate/console:${ILLUMINATE_VERSION}" --no-update --prefer-dist
+  - composer require "illuminate/contracts:${ILLUMINATE_VERSION}" --no-update --prefer-dist
   - composer require "illuminate/support:${ILLUMINATE_VERSION}" --no-update --prefer-dist
-  - composer require "illuminate/database:${ILLUMINATE_VERSION}" --no-update --prefer-dist
-  - composer require "illuminate/config:${ILLUMINATE_VERSION}" --no-update --prefer-dist
+  - composer require "illuminate/filesystem:${ILLUMINATE_VERSION}" --no-update --prefer-dist
   - composer require "orchestra/testbench:${ILLUMINATE_VERSION/5\./3\.}" --no-update --prefer-dist
   - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --prefer-dist
 
