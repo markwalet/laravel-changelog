@@ -1,4 +1,4 @@
-# Laravel Git State
+# Laravel Changelog
 
 [![Build Status](https://travis-ci.org/markwalet/laravel-changelog.svg?branch=master)](https://travis-ci.org/markwalet/laravel-changelog)
 [![Coverage Status](https://coveralls.io/repos/github/markwalet/laravel-changelog/badge.svg?branch=master)](https://coveralls.io/github/markwalet/laravel-changelog?branch=master)
