@@ -1,0 +1,36 @@
+language: php
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+    - $HOME/.composer/cache/files
+    - ${TRAVIS_BUILD_DIR}/travis/extension-cache
+
+php:
+  - "7.1"
+  - "7.2"
+  - "7.3"
+
+env: # Testing from the latest LTS release to the latest minor version.
+  - ILLUMINATE_VERSION=5.5.* PHPUNIT_VERSION=~6.0
+  - ILLUMINATE_VERSION=5.6.* PHPUNIT_VERSION=~7.0
+  - ILLUMINATE_VERSION=5.7.* PHPUNIT_VERSION=~7.0
+  - ILLUMINATE_VERSION=5.8.* PHPUNIT_VERSION=^7.5
+
+before_install: # Update requirements to fit environment variables.
+  - composer require "illuminate/support:${ILLUMINATE_VERSION}" --no-update --prefer-dist
+  - composer require "illuminate/database:${ILLUMINATE_VERSION}" --no-update --prefer-dist
+  - composer require "illuminate/config:${ILLUMINATE_VERSION}" --no-update --prefer-dist
+  - composer require "orchestra/testbench:${ILLUMINATE_VERSION/5\./3\.}" --no-update --prefer-dist
+  - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --prefer-dist
+
+install: travis_retry composer install --no-interaction --prefer-dist
+
+script:
+  - vendor/bin/phpunit
+
+after_success:
+  - php vendor/bin/php-coveralls -v -x clover.xml -o clover.json
+
+notifications:
+  email: false

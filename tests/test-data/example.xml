@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feature>
+    <change type="added">Added a new feature.</change>
+    <change type="added">Added an other feature.</change>
+    <change type="changed">Changed something that breaks the application.</change>
+    <change type="removed">Removed a deprecated function.</change>
+</feature>
