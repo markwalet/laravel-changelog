@@ -14,7 +14,11 @@ class TextChangelogFormatter extends ChangelogFormatter
      */
     public function single(Release $release): string
     {
-        $lines = [ucfirst($release->version())];
+        $version = ($this->config('capitalize', true))
+            ? ucfirst($release->version())
+            : $release->version();
+
+        $lines = [$version];
         foreach ($release->changes() as $change) {
             $type = ucfirst($change->type());
             $lines[] = "  - {$type}: {$change->message()}";
