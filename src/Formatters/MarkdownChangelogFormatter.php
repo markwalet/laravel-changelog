@@ -14,7 +14,10 @@ class MarkdownChangelogFormatter extends ChangelogFormatter
      */
     public function single(Release $release): string
     {
-        $version = ucfirst($release->version());
+        $version = ($this->config('capitalize', true))
+            ? ucfirst($release->version())
+            : $release->version();
+
         $lines = ["## [{$version}]"];
 
         $currentType = null;

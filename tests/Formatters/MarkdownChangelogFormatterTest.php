@@ -5,7 +5,6 @@ namespace MarkWalet\Changelog\Tests;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Formatters\MarkdownChangelogFormatter;
-use MarkWalet\Changelog\Formatters\TextChangelogFormatter;
 use MarkWalet\Changelog\Release;
 use PHPUnit\Framework\TestCase;
 
@@ -69,5 +68,28 @@ class MarkdownChangelogFormatterTest extends TestCase
             . PHP_EOL . ''
             . PHP_EOL . '### Changed'
             . PHP_EOL . ' - Renamed methods in the adapter interfaces.', $result);
+    }
+
+    /** @test */
+    public function it_can_optionally_capitalize_the_version()
+    {
+        $release = new Release('v1.0.1');
+        $defaultFormatter = new MarkdownChangelogFormatter;
+        $capitalizedFormatter = new MarkdownChangelogFormatter(['capitalize' => true]);
+        $lowercaseFormatter = new MarkdownChangelogFormatter(['capitalize' => false]);
+
+        $resultA = $defaultFormatter->single($release);
+        $resultB = $defaultFormatter->multiple([$release]);
+        $resultC = $capitalizedFormatter->single($release);
+        $resultD = $capitalizedFormatter->multiple([$release]);
+        $resultE = $lowercaseFormatter->single($release);
+        $resultF = $lowercaseFormatter->multiple([$release]);
+
+        $this->assertStringContainsString('V1.0.1', $resultA);
+        $this->assertStringContainsString('V1.0.1', $resultB);
+        $this->assertStringContainsString('V1.0.1', $resultC);
+        $this->assertStringContainsString('V1.0.1', $resultD);
+        $this->assertStringContainsString('v1.0.1', $resultE);
+        $this->assertStringContainsString('v1.0.1', $resultF);
     }
 }

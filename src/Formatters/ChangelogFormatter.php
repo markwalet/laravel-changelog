@@ -36,4 +36,18 @@ abstract class ChangelogFormatter
      * @return string
      */
     public abstract function multiple(array $releases): string;
+
+    /**
+     * Get a configuration value.
+     *
+     * @param string $key
+     * @param mixed $default
+     * @return mixed
+     */
+    protected function config(string $key, $default = null)
+    {
+        return (array_key_exists($key, $this->config))
+            ? $this->config[$key]
+            : $default;
+    }
 }

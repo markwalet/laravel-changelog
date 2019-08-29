@@ -42,11 +42,13 @@ return [
     */
 
     'formatters' => [
-        'text'     => [
+        'text' => [
             'driver' => TextChangelogFormatter::class,
+            'capitalize' => true,
         ],
         'markdown' => [
             'driver' => MarkdownChangelogFormatter::class,
+            'capitalize' => true,
         ],
     ],
 ];
