@@ -18,4 +18,17 @@ class ChangeTest extends TestCase
         $this->assertEquals('added', $type);
         $this->assertEquals('Added a new feature', $message);
     }
+
+    /** @test */
+    public function change_type_is_converted_to_lowercase()
+    {
+        $changeA = new Change('Ucfirst', '');
+        $changeB = new Change('UPPERCASE', '');
+
+        $typeA = $changeA->type();
+        $typeB = $changeB->type();
+
+        $this->assertEquals('ucfirst', $typeA);
+        $this->assertEquals('uppercase', $typeB);
+    }
 }
