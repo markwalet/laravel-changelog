@@ -13,22 +13,9 @@ class FakeReleaseAdapter implements ReleaseAdapter
     use CanSortReleases;
 
     /**
-     * @var FakeFeatureAdapter
-     */
-    private $featureAdapter;
-
-    /**
      * @var Release[][]|array
      */
     private $releases = [];
-
-    /**
-     * XmlReleaseAdapter constructor.
-     */
-    public function __construct()
-    {
-        $this->changelogAdapter = new FakeFeatureAdapter;
-    }
 
     /**
      * A a release to the list.

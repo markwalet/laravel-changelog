@@ -3,9 +3,8 @@
 namespace MarkWalet\Changelog\Adapters;
 
 use MarkWalet\Changelog\Change;
-use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
-use MarkWalet\Changelog\Exceptions\InvalidXmlException;
+use MarkWalet\Changelog\Feature;
 
 class FakeFeatureAdapter implements FeatureAdapter
 {
@@ -15,7 +14,7 @@ class FakeFeatureAdapter implements FeatureAdapter
     private $changes = [];
 
     /**
-     * @param string  $path
+     * @param string $path
      * @param Feature $changes
      */
     public function setChanges(string $path, Feature $changes)
@@ -41,7 +40,7 @@ class FakeFeatureAdapter implements FeatureAdapter
     /**
      * Store a feature.
      *
-     * @param string  $path
+     * @param string $path
      * @param Feature $feature
      */
     public function write(string $path, Feature $feature): void

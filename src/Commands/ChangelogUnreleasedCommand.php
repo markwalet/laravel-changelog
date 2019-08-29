@@ -3,17 +3,13 @@
 namespace MarkWalet\Changelog\Commands;
 
 use Illuminate\Console\Command;
-use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
-use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
-use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
-use MarkWalet\GitState\Drivers\GitDriver;
 
 class ChangelogUnreleasedCommand extends Command
 {
-
+    
     /**
      * The name and signature of the console command.
      *
@@ -31,7 +27,7 @@ class ChangelogUnreleasedCommand extends Command
     /**
      * Execute the command.
      *
-     * @param ReleaseAdapter            $adapter
+     * @param ReleaseAdapter $adapter
      * @param ChangelogFormatterFactory $factory
      */
     public function handle(ReleaseAdapter $adapter, ChangelogFormatterFactory $factory)
@@ -44,6 +40,7 @@ class ChangelogUnreleasedCommand extends Command
         $formatted = $formatter->single($release);
         $this->line($formatted);
     }
+
     /**
      * Get the unreleased feature.
      *
@@ -56,7 +53,7 @@ class ChangelogUnreleasedCommand extends Command
         if ($adapter->exists($path, 'unreleased') === false) {
             return new Release('unreleased');
         }
-        
+
         return $adapter->read($path, 'unreleased');
     }
 }

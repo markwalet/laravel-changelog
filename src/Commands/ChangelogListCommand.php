@@ -3,13 +3,9 @@
 namespace MarkWalet\Changelog\Commands;
 
 use Illuminate\Console\Command;
-use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
-use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
-use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
-use MarkWalet\GitState\Drivers\GitDriver;
 
 class ChangelogListCommand extends Command
 {
@@ -31,7 +27,7 @@ class ChangelogListCommand extends Command
     /**
      * Execute the command.
      *
-     * @param ReleaseAdapter            $adapter
+     * @param ReleaseAdapter $adapter
      * @param ChangelogFormatterFactory $factory
      */
     public function handle(ReleaseAdapter $adapter, ChangelogFormatterFactory $factory)
@@ -45,6 +41,7 @@ class ChangelogListCommand extends Command
 
         $this->line($formatted);
     }
+
     /**
      * Get the releases for the given path.
      *

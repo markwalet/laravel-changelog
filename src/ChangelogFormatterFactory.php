@@ -17,6 +17,11 @@ class ChangelogFormatterFactory
      */
     protected $app;
 
+    /**
+     * ChangelogFormatterFactory constructor.
+     *
+     * @param Application $app
+     */
     public function __construct(Application $app)
     {
         $this->app = $app;
