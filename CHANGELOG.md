@@ -3,6 +3,8 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.0.2...master)
 
+## [v1.0.2 (2019-09-29)](https://github.com/markwalet/laravel-changelog/compare/v1.0.1...v1.0.2)
+
 ### Fixed
 - Fixed a code example in the readme ([#1](https://github.com/markwalet/laravel-changelog/issues/1))
 - Fixed the publishing path for the template view ([#3](https://github.com/markwalet/laravel-changelog/issues/3))
