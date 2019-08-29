@@ -55,7 +55,7 @@ class ChangelogServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../config/changelog.php' => $this->app->configPath('changelog.php'),
-            __DIR__ . '/../resources/views/changelog.blade.php' => $this->app->resourcePath('vendor/changelog/changelog.blade.php')
+            __DIR__ . '/../resources/views/changelog.blade.php' => $this->app->resourcePath('views/vendor/changelog/changelog.blade.php'),
         ]);
 
         $this->bootCommands();
