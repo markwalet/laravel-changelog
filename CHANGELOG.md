@@ -1,7 +1,9 @@
 # Release Notes
 
-
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.0.2...master)
+
+### Added
+- Added optional capitalization for version names in generated changelog ([#5](https://github.com/markwalet/laravel-changelog/issues/5))
 
 ## [v1.0.2 (2019-09-29)](https://github.com/markwalet/laravel-changelog/compare/v1.0.1...v1.0.2)
 
