@@ -1,7 +1,7 @@
 # Laravel Changelog
 
 [![Build Status](https://travis-ci.org/markwalet/laravel-changelog.svg?branch=master)](https://travis-ci.org/markwalet/laravel-changelog)
-[![Coverage Status](https://coveralls.io/repos/github/markwalet/laravel-changelog/badge.svg?branch=master)](https://coveralls.io/github/markwalet/laravel-changelog?branch=master)
+[![Coverage](https://codecov.io/gh/markwalet/laravel-changelog/branch/master/graph/badge.svg)](https://codecov.io/gh/markwalet/laravel-changelog)
 [![Total Downloads](https://poser.pugx.org/markwalet/laravel-changelog/downloads)](https://packagist.org/packages/markwalet/laravel-changelog)
 [![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-changelog/v/stable)](https://packagist.org/packages/markwalet/laravel-changelog)
 [![License](https://poser.pugx.org/markwalet/laravel-changelog/license)](https://packagist.org/packages/markwalet/laravel-changelog)
