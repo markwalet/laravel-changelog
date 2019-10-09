@@ -14,7 +14,7 @@
     "illuminate/console": "~5.7",
     "illuminate/contracts": "~5.7",
     "illuminate/support": "~5.7",
-    "illuminate/filesystem": "~5.7",gs
+    "illuminate/filesystem": "~5.7",
     "markwalet/laravel-git-state": "^1.0",
     "ext-simplexml": "*",
     "ext-dom": "*"
