@@ -14,13 +14,12 @@
     "illuminate/console": "~5.7",
     "illuminate/contracts": "~5.7",
     "illuminate/support": "~5.7",
-    "illuminate/filesystem": "~5.7",
+    "illuminate/filesystem": "~5.7",gs
     "markwalet/laravel-git-state": "^1.0",
     "ext-simplexml": "*",
     "ext-dom": "*"
   },
   "require-dev": {
-    "php-coveralls/php-coveralls": "^2.1",
     "phpunit/phpunit": "~7.0||~8.0",
     "orchestra/testbench": "~3.5"
   },
