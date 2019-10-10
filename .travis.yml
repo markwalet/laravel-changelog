@@ -26,10 +26,10 @@ before_install: # Update requirements to fit environment variables.
 install: travis_retry composer install --no-interaction --prefer-dist
 
 script:
-  - vendor/bin/phpunit --testdox
+  - vendor/bin/phpunit
 
 after_success:
-  - php vendor/bin/php-coveralls -v -x clover.xml -o clover.json
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: false

@@ -20,7 +20,6 @@
     "ext-dom": "*"
   },
   "require-dev": {
-    "php-coveralls/php-coveralls": "^2.1",
     "phpunit/phpunit": "~7.0||~8.0",
     "orchestra/testbench": "~3.5"
   },
