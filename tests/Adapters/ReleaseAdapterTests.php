@@ -6,13 +6,12 @@ use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Exceptions\DirectoryNotFoundException;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 use MarkWalet\Changelog\Exceptions\VersionAlreadyExistsException;
-use MarkWalet\Changelog\Release;
 
 trait ReleaseAdapterTests
 {
-    public $readPath = __DIR__ . '/../test-data';
+    public $readPath = __DIR__.'/../test-data';
     public $readVersion = 'multiple';
-    public $readAll = __DIR__ . '/../test-data/releases';
+    public $readAll = __DIR__.'/../test-data/releases';
 
     /**
      * Get an adapter instance.

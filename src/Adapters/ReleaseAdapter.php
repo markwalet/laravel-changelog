@@ -7,7 +7,7 @@ use MarkWalet\Changelog\Release;
 interface ReleaseAdapter
 {
     /**
-     * Load a single release
+     * Load a single release.
      *
      * @param string $path
      * @param string $version

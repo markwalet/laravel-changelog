@@ -23,7 +23,7 @@ class XmlReleaseAdapterTest extends TestCase
     public function it_can_execute_a_release()
     {
         $adapter = $this->adapter();
-        $path = __DIR__ . '/../test-data/release-write-test';
+        $path = __DIR__.'/../test-data/release-write-test';
 
         $unreleasedBefore = $adapter->exists($path, 'unreleased');
         $versionBefore = $adapter->exists($path, 'v1.0.2');
@@ -36,6 +36,6 @@ class XmlReleaseAdapterTest extends TestCase
         $this->assertFalse($unreleasedAfter);
         $this->assertTrue($versionAfter);
 
-        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2', __DIR__.'/../test-data/release-write-test/unreleased');
+        rename(__DIR__.'/../test-data/release-write-test/v1.0.2', __DIR__.'/../test-data/release-write-test/unreleased');
     }
 }

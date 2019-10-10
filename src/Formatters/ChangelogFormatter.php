@@ -27,7 +27,7 @@ abstract class ChangelogFormatter
      * @param Release $release
      * @return string
      */
-    public abstract function single(Release $release): string;
+    abstract public function single(Release $release): string;
 
     /**
      * Format a list of releases to a string format.
@@ -35,7 +35,7 @@ abstract class ChangelogFormatter
      * @param Release[]|array $releases
      * @return string
      */
-    public abstract function multiple(array $releases): string;
+    abstract public function multiple(array $releases): string;
 
     /**
      * Get a configuration value.

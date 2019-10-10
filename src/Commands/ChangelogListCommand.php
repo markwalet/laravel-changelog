@@ -9,7 +9,6 @@ use MarkWalet\Changelog\Release;
 
 class ChangelogListCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *

@@ -34,7 +34,7 @@ class FakeReleaseAdapter implements ReleaseAdapter
     }
 
     /**
-     * Load a single release
+     * Load a single release.
      *
      * @param string $path
      * @param string $version
@@ -85,7 +85,7 @@ class FakeReleaseAdapter implements ReleaseAdapter
         $versions = $this->sortVersions(array_keys($versions));
 
         $releases = [];
-        foreach($versions as $version) {
+        foreach ($versions as $version) {
             $releases[] = $this->read($path, $version);
         }
 

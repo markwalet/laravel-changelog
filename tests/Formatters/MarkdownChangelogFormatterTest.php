@@ -26,13 +26,13 @@ class MarkdownChangelogFormatterTest extends TestCase
         $result = $formatter->single($release);
 
         $this->assertEquals('## [Unreleased]'
-            . PHP_EOL . ''
-            . PHP_EOL . '### Added'
-            . PHP_EOL . ' - Added a feature.'
-            . PHP_EOL . ' - Added helper commands.'
-            . PHP_EOL . ''
-            . PHP_EOL . '### Removed'
-            . PHP_EOL . ' - Removed unused trait.', $result);
+            .PHP_EOL.''
+            .PHP_EOL.'### Added'
+            .PHP_EOL.' - Added a feature.'
+            .PHP_EOL.' - Added helper commands.'
+            .PHP_EOL.''
+            .PHP_EOL.'### Removed'
+            .PHP_EOL.' - Removed unused trait.', $result);
     }
 
     /** @test */
@@ -53,21 +53,21 @@ class MarkdownChangelogFormatterTest extends TestCase
         $result = $formatter->multiple([$releaseA, $releaseB]);
 
         $this->assertEquals(''
-            . PHP_EOL . '## [Unreleased]'
-            . PHP_EOL . ''
-            . PHP_EOL . '### Added'
-            . PHP_EOL . ' - Added helper commands.'
-            . PHP_EOL . ''
-            . PHP_EOL . '### Removed'
-            . PHP_EOL . ' - Removed unused trait.'
-            . PHP_EOL . ''
-            . PHP_EOL . '## [V1.0.1]'
-            . PHP_EOL . ''
-            . PHP_EOL . '### Added'
-            . PHP_EOL . ' - Added a feature.'
-            . PHP_EOL . ''
-            . PHP_EOL . '### Changed'
-            . PHP_EOL . ' - Renamed methods in the adapter interfaces.', $result);
+            .PHP_EOL.'## [Unreleased]'
+            .PHP_EOL.''
+            .PHP_EOL.'### Added'
+            .PHP_EOL.' - Added helper commands.'
+            .PHP_EOL.''
+            .PHP_EOL.'### Removed'
+            .PHP_EOL.' - Removed unused trait.'
+            .PHP_EOL.''
+            .PHP_EOL.'## [V1.0.1]'
+            .PHP_EOL.''
+            .PHP_EOL.'### Added'
+            .PHP_EOL.' - Added a feature.'
+            .PHP_EOL.''
+            .PHP_EOL.'### Changed'
+            .PHP_EOL.' - Renamed methods in the adapter interfaces.', $result);
     }
 
     /** @test */

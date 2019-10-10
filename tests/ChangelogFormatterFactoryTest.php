@@ -115,6 +115,6 @@ final class TestFormatter extends ChangelogFormatter
     }
 }
 
-final class InvalidFormatter {
-
+final class InvalidFormatter
+{
 }

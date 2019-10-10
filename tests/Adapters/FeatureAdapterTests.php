@@ -7,7 +7,7 @@ use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 
 trait FeatureAdapterTests
 {
-    public $readPath = __DIR__ . '/../test-data/example.xml';
+    public $readPath = __DIR__.'/../test-data/example.xml';
 
     /**
      * Get an adapter instance.
@@ -22,7 +22,7 @@ trait FeatureAdapterTests
         $adapter = $this->adapter();
 
         $resultA = $adapter->exists($this->readPath);
-        $resultB = $adapter->exists(__DIR__ . '/../test-data/non-existing.xml');
+        $resultB = $adapter->exists(__DIR__.'/../test-data/non-existing.xml');
 
         $this->assertTrue($resultA);
         $this->assertFalse($resultB);
@@ -51,7 +51,7 @@ trait FeatureAdapterTests
     public function it_throws_an_exception_when_it_tries_to_read_a_non_existing_file()
     {
         $adapter = $this->adapter();
-        $path = __DIR__ . '/../test-data/not-existing.xml';
+        $path = __DIR__.'/../test-data/not-existing.xml';
 
         $this->expectException(FileNotFoundException::class);
 

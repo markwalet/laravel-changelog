@@ -8,7 +8,6 @@ use MarkWalet\Changelog\Exceptions\VersionAlreadyExistsException;
 
 class ChangelogReleaseCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *

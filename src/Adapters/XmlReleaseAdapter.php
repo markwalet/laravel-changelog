@@ -26,7 +26,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
     }
 
     /**
-     * Load a single release
+     * Load a single release.
      *
      * @param string $path
      * @param string $version
@@ -34,20 +34,19 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function read(string $path, string $version): Release
     {
-        $fullPath = $path . DIRECTORY_SEPARATOR . $version;
+        $fullPath = $path.DIRECTORY_SEPARATOR.$version;
 
         if ($this->exists($path, $version) === false) {
             throw new FileNotFoundException($fullPath);
         }
-
 
         $files = array_filter(scandir($fullPath), function ($p) {
             return substr($p, -4) === '.xml';
         });
 
         $release = new Release($version);
-        foreach($files as $file) {
-            $feature = $this->featureAdapter->read($fullPath . DIRECTORY_SEPARATOR . $file);
+        foreach ($files as $file) {
+            $feature = $this->featureAdapter->read($fullPath.DIRECTORY_SEPARATOR.$file);
             $release->add($feature);
         }
 
@@ -92,7 +91,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
         $versions = $this->sortVersions($versions);
 
         $releases = [];
-        foreach($versions as $version) {
+        foreach ($versions as $version) {
             $releases[] = $this->read($path, $version);
         }
 
@@ -108,7 +107,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function exists(string $path, string $version): bool
     {
-        $fullPath = $path . DIRECTORY_SEPARATOR . $version;
+        $fullPath = $path.DIRECTORY_SEPARATOR.$version;
 
         return file_exists($fullPath) && is_dir($fullPath);
     }

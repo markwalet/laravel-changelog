@@ -45,9 +45,9 @@ class XmlFeatureAdapter implements FeatureAdapter
         foreach ($element->children() as $change) {
             $type = $change->attributes()['type'];
             if (is_null($type)) {
-                throw new InvalidXmlException("Missing `type` attribute on change element.");
+                throw new InvalidXmlException('Missing `type` attribute on change element.');
             }
-            $message = (string)$change;
+            $message = (string) $change;
 
             $feature->add(new Change($type, $message));
         }
@@ -58,7 +58,7 @@ class XmlFeatureAdapter implements FeatureAdapter
     /**
      * Store a feature.
      *
-     * @param string  $path
+     * @param string $path
      * @param Feature $feature
      */
     public function write(string $path, Feature $feature): void
@@ -67,7 +67,7 @@ class XmlFeatureAdapter implements FeatureAdapter
         $xml->formatOutput = true;
         $xml->encoding = 'UTF-8';
 
-        $root = $xml->createElement("feature");
+        $root = $xml->createElement('feature');
 
         foreach ($feature->changes() as $change) {
             $element = $xml->createElement('change', $change->message());

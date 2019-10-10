@@ -2,9 +2,7 @@
 
 namespace MarkWalet\Changelog\Tests\Concerns;
 
-use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Concerns\CanSortReleases;
-use MarkWalet\Changelog\Release;
 use PHPUnit\Framework\TestCase;
 
 class CanSortVersionsTest extends TestCase
@@ -42,6 +40,7 @@ class CanSortVersionsTest extends TestCase
     }
 }
 
-class SortableReleasesTestClass {
+class SortableReleasesTestClass
+{
     use CanSortReleases;
 }

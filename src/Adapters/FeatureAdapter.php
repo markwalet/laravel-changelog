@@ -15,7 +15,7 @@ interface FeatureAdapter
     public function read(string $path): Feature;
 
     /**
-     * Store a feature
+     * Store a feature.
      *
      * @param string  $path
      * @param Feature $feature
