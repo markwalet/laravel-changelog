@@ -14,7 +14,7 @@ trait FeatureAdapterTests
      *
      * @return FeatureAdapter
      */
-    public abstract function adapter(): FeatureAdapter;
+    abstract public function adapter(): FeatureAdapter;
 
     /** @test */
     public function it_can_see_if_a_changelog_exists()

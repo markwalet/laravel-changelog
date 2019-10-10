@@ -18,7 +18,7 @@ trait ReleaseAdapterTests
      *
      * @return ReleaseAdapter
      */
-    public abstract function adapter(): ReleaseAdapter;
+    abstract public function adapter(): ReleaseAdapter;
 
     /** @test */
     public function it_can_see_if_a_release_exists()
@@ -95,5 +95,4 @@ trait ReleaseAdapterTests
         $adapter->release($this->readAll, 'v1.0.1');
         $this->assertTrue($adapter->exists($this->readAll, 'unreleased'));
     }
-
 }

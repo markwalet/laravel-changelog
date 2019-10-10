@@ -85,7 +85,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
         }
 
         $versions = array_filter(scandir($path), function ($p) use ($path) {
-            return is_dir($path.DIRECTORY_SEPARATOR.$p) && !in_array($p, ['.', '..']);
+            return is_dir($path.DIRECTORY_SEPARATOR.$p) && in_array($p, ['.', '..']) === false;
         });
 
         $versions = $this->sortVersions($versions);

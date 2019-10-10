@@ -10,7 +10,6 @@ use MarkWalet\GitState\Drivers\GitDriver;
 
 class ChangelogAddCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *

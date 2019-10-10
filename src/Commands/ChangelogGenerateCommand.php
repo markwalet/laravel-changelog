@@ -10,7 +10,6 @@ use Throwable;
 
 class ChangelogGenerateCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *
