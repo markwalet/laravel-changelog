@@ -7,20 +7,26 @@ cache:
     - ${TRAVIS_BUILD_DIR}/travis/extension-cache
 
 php:
-  - "7.1"
-  - "7.2"
-  - "7.3"
+  - 7.1
+  - 7.2
+  - 7.3
 
-env: # Testing from the latest LTS release to the latest minor version.
-  - ILLUMINATE_VERSION=5.7.* PHPUNIT_VERSION=~7.0
-  - ILLUMINATE_VERSION=5.8.* PHPUNIT_VERSION=^7.5
+env:
+  - ILLUMINATE_VERSION=5.7.* PHPUNIT_VERSION=~7.0 TESTBENCH_VERSION=3.7.*
+  - ILLUMINATE_VERSION=5.8.* PHPUNIT_VERSION=^7.5 TESTBENCH_VERSION=3.8.*
+  - ILLUMINATE_VERSION=6.* PHPUNIT_VERSION=^8.0 TESTBENCH_VERSION=4.*
+
+matrix:
+  exclude:
+    - php: 7.1
+      env: ILLUMINATE_VERSION=6.* PHPUNIT_VERSION=^8.0 TESTBENCH_VERSION=4.*
 
 before_install: # Update requirements to fit environment variables.
   - composer require "illuminate/console:${ILLUMINATE_VERSION}" --no-update --prefer-dist
   - composer require "illuminate/contracts:${ILLUMINATE_VERSION}" --no-update --prefer-dist
   - composer require "illuminate/support:${ILLUMINATE_VERSION}" --no-update --prefer-dist
   - composer require "illuminate/filesystem:${ILLUMINATE_VERSION}" --no-update --prefer-dist
-  - composer require "orchestra/testbench:${ILLUMINATE_VERSION/5\./3\.}" --no-update --prefer-dist
+  - composer require "orchestra/testbench:${TESTBENCH_VERSION}" --no-update --prefer-dist
   - composer require "phpunit/phpunit:${PHPUNIT_VERSION}" --no-update --prefer-dist
 
 install: travis_retry composer install --no-interaction --prefer-dist
