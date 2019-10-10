@@ -2,8 +2,8 @@
 
 namespace MarkWalet\Changelog\Tests\Adapters;
 
-use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Adapters\FakeFeatureAdapter;
+use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use PHPUnit\Framework\TestCase;
@@ -39,7 +39,7 @@ class FakeFeatureAdapterTest extends TestCase
             new Change('added', 'Added a new feature.'),
             new Change('removed', 'Removed something else.'),
         ]);
-        $path = __DIR__ . '/../test-data/write-test/example.xml';
+        $path = __DIR__.'/../test-data/write-test/example.xml';
 
         $before = $adapter->exists($path);
         $adapter->write($path, $feature);

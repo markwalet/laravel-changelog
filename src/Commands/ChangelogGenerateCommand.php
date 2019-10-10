@@ -10,7 +10,6 @@ use Throwable;
 
 class ChangelogGenerateCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *
@@ -28,7 +27,7 @@ class ChangelogGenerateCommand extends Command
     /**
      * Execute the command.
      *
-     * @param ReleaseAdapter            $adapter
+     * @param ReleaseAdapter $adapter
      * @param ChangelogFormatterFactory $factory
      * @throws Throwable
      */
@@ -49,16 +48,15 @@ class ChangelogGenerateCommand extends Command
             return;
         }
 
-
         file_put_contents($writePath, $content);
-        $this->info('The changelog is written to: ' . $writePath);
+        $this->info('The changelog is written to: '.$writePath);
     }
 
     /**
      * Get the releases for the given path.
      *
      * @param ReleaseAdapter $adapter
-     * @param string         $path
+     * @param string $path
      * @return Release[]|array
      */
     private function releases(ReleaseAdapter $adapter, string $path): array

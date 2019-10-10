@@ -2,8 +2,8 @@
 
 namespace MarkWalet\Changelog\Tests\Commands;
 
-use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Adapters\FakeFeatureAdapter;
+use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;

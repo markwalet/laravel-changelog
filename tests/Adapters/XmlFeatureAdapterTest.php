@@ -2,11 +2,11 @@
 
 namespace MarkWalet\Changelog\Tests\Adapters;
 
-use MarkWalet\Changelog\Change;
-use MarkWalet\Changelog\Feature;
-use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Adapters\XmlFeatureAdapter;
+use MarkWalet\Changelog\Change;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
+use MarkWalet\Changelog\Feature;
 use PHPUnit\Framework\TestCase;
 
 class XmlFeatureAdapterTest extends TestCase
@@ -31,7 +31,7 @@ class XmlFeatureAdapterTest extends TestCase
             new Change('added', 'Added a new feature.'),
             new Change('removed', 'Removed something else.'),
         ]);
-        $path = __DIR__ . '/../test-data/write-test/example.xml';
+        $path = __DIR__.'/../test-data/write-test/example.xml';
 
         $adapter->write($path, $feature);
 
@@ -47,7 +47,7 @@ class XmlFeatureAdapterTest extends TestCase
     public function it_throws_an_exception_when_the_file_is_invalid()
     {
         $adapter = $this->adapter();
-        $path = __DIR__ . '/../test-data/invalid.xml';
+        $path = __DIR__.'/../test-data/invalid.xml';
 
         $this->expectException(InvalidXmlException::class);
 

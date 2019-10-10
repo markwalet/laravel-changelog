@@ -26,9 +26,9 @@ class TextChangelogFormatterTest extends TestCase
         $result = $formatter->single($release);
 
         $this->assertEquals('Unreleased'
-            . PHP_EOL . '  - Added: Added a feature.'
-            . PHP_EOL . '  - Added: Added helper commands.'
-            . PHP_EOL . '  - Removed: Removed unused trait.', $result);
+            .PHP_EOL.'  - Added: Added a feature.'
+            .PHP_EOL.'  - Added: Added helper commands.'
+            .PHP_EOL.'  - Removed: Removed unused trait.', $result);
     }
 
     /** @test */
@@ -49,11 +49,11 @@ class TextChangelogFormatterTest extends TestCase
         $result = $formatter->multiple([$releaseA, $releaseB]);
 
         $this->assertEquals('Unreleased'
-            . PHP_EOL . '  - Added: Added helper commands.'
-            . PHP_EOL . '  - Removed: Removed unused trait.'
-            . PHP_EOL . 'V1.0.1'
-            . PHP_EOL . '  - Added: Added a feature.'
-            . PHP_EOL . '  - Changed: Renamed methods in the adapter interfaces.', $result);
+            .PHP_EOL.'  - Added: Added helper commands.'
+            .PHP_EOL.'  - Removed: Removed unused trait.'
+            .PHP_EOL.'V1.0.1'
+            .PHP_EOL.'  - Added: Added a feature.'
+            .PHP_EOL.'  - Changed: Renamed methods in the adapter interfaces.', $result);
     }
 
     /** @test */

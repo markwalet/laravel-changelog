@@ -6,20 +6,19 @@ use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Exceptions\DirectoryNotFoundException;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 use MarkWalet\Changelog\Exceptions\VersionAlreadyExistsException;
-use MarkWalet\Changelog\Release;
 
 trait ReleaseAdapterTests
 {
-    public $readPath = __DIR__ . '/../test-data';
+    public $readPath = __DIR__.'/../test-data';
     public $readVersion = 'multiple';
-    public $readAll = __DIR__ . '/../test-data/releases';
+    public $readAll = __DIR__.'/../test-data/releases';
 
     /**
      * Get an adapter instance.
      *
      * @return ReleaseAdapter
      */
-    public abstract function adapter(): ReleaseAdapter;
+    abstract public function adapter(): ReleaseAdapter;
 
     /** @test */
     public function it_can_see_if_a_release_exists()
@@ -96,5 +95,4 @@ trait ReleaseAdapterTests
         $adapter->release($this->readAll, 'v1.0.1');
         $this->assertTrue($adapter->exists($this->readAll, 'unreleased'));
     }
-
 }

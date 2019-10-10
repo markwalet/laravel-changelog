@@ -3,10 +3,7 @@
 namespace MarkWalet\Changelog\Tests;
 
 use Illuminate\Foundation\Application;
-use MarkWalet\Changelog\Adapters\FeatureAdapter;
-use MarkWalet\Changelog\Adapters\FakeFeatureAdapter;
 use MarkWalet\Changelog\ChangelogServiceProvider;
-use MarkWalet\GitState\GitStateServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 class LaravelTestCase extends TestCase

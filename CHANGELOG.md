@@ -4,6 +4,7 @@
 
 ### Added
 - Added Codecov integration.
+- Added StyleCI integration.
 
 ### Removed
 - Removed Coveralls integration.

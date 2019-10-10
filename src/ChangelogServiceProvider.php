@@ -23,7 +23,7 @@ class ChangelogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/changelog.php', 'changelog');
+        $this->mergeConfigFrom(__DIR__.'/../config/changelog.php', 'changelog');
 
         $this->registerServices();
     }
@@ -54,8 +54,8 @@ class ChangelogServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/changelog.php' => $this->app->configPath('changelog.php'),
-            __DIR__ . '/../resources/views/changelog.blade.php' => $this->app->resourcePath('views/vendor/changelog/changelog.blade.php'),
+            __DIR__.'/../config/changelog.php' => $this->app->configPath('changelog.php'),
+            __DIR__.'/../resources/views/changelog.blade.php' => $this->app->resourcePath('views/vendor/changelog/changelog.blade.php'),
         ]);
 
         $this->bootCommands();
@@ -83,6 +83,6 @@ class ChangelogServiceProvider extends ServiceProvider
      */
     private function bootViews(): void
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'changelog');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'changelog');
     }
 }

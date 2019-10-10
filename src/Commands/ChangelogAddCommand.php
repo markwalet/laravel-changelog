@@ -10,7 +10,6 @@ use MarkWalet\GitState\Drivers\GitDriver;
 
 class ChangelogAddCommand extends Command
 {
-
     /**
      * The name and signature of the console command.
      *
@@ -28,7 +27,7 @@ class ChangelogAddCommand extends Command
     /**
      * Execute the command.
      *
-     * @param GitDriver      $gitState
+     * @param GitDriver $gitState
      * @param FeatureAdapter $adapter
      */
     public function handle(GitDriver $gitState, FeatureAdapter $adapter)
@@ -46,15 +45,15 @@ class ChangelogAddCommand extends Command
 
         $this->write($adapter, $path, $feature);
 
-        $this->info("Wrote a new change to the feature file.");
+        $this->info('Wrote a new change to the feature file.');
     }
 
     /**
      * Write the updated feature to the filesystem.
-     * 
+     *
      * @param FeatureAdapter $adapter
-     * @param string         $path
-     * @param Feature        $feature
+     * @param string $path
+     * @param Feature $feature
      */
     private function write(FeatureAdapter $adapter, string $path, Feature $feature)
     {
@@ -66,7 +65,7 @@ class ChangelogAddCommand extends Command
      * If it doesn't exist, create a new feature instance.
      *
      * @param FeatureAdapter $adapter
-     * @param string         $path
+     * @param string $path
      * @return Feature
      */
     private function changelog(FeatureAdapter $adapter, string $path): Feature
@@ -87,8 +86,8 @@ class ChangelogAddCommand extends Command
     private function path(GitDriver $gitState)
     {
         return config('changelog.path')
-            . DIRECTORY_SEPARATOR . 'unreleased'
-            . DIRECTORY_SEPARATOR . $gitState->currentBranch() . '.xml';
+            .DIRECTORY_SEPARATOR.'unreleased'
+            .DIRECTORY_SEPARATOR.$gitState->currentBranch().'.xml';
     }
 
     /**
@@ -101,7 +100,7 @@ class ChangelogAddCommand extends Command
         $type = $this->option('type');
 
         if (is_null($type)) {
-            $type = $this->ask("type");
+            $type = $this->ask('type');
         }
 
         return $type;
@@ -117,7 +116,7 @@ class ChangelogAddCommand extends Command
         $message = $this->option('message');
 
         if (is_null($message)) {
-            $message = $this->ask("message");
+            $message = $this->ask('message');
         }
 
         return $message;

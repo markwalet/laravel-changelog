@@ -22,14 +22,13 @@ class MarkdownChangelogFormatter extends ChangelogFormatter
 
         $currentType = null;
         foreach ($release->changes() as $change) {
-
             if ($currentType !== $change->type()) {
                 $currentType = $change->type();
                 $lines[] = '';
-                $lines[] = '### ' . ucfirst($change->type());
+                $lines[] = '### '.ucfirst($change->type());
             }
 
-            $lines[] = ' - ' . $change->message();
+            $lines[] = ' - '.$change->message();
         }
 
         return implode(PHP_EOL, $lines);

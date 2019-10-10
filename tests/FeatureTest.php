@@ -22,7 +22,7 @@ class FeatureTest extends TestCase
         $this->assertEquals('added', $changes[0]->type());
         $this->assertEquals('Added a new feature.', $changes[0]->message());
         $this->assertEquals('changed', $changes[1]->type());
-        $this->assertEquals( 'Changed an existing feature.', $changes[1]->message());
+        $this->assertEquals('Changed an existing feature.', $changes[1]->message());
     }
 
     /** @test */
@@ -48,7 +48,7 @@ class FeatureTest extends TestCase
 
         $this->assertCount(3, $changes);
         $this->assertEquals('removed', $changes[2]->type());
-        $this->assertEquals( 'Removed something.', $changes[2]->message());
+        $this->assertEquals('Removed something.', $changes[2]->message());
     }
 
     /** @test */
@@ -64,6 +64,6 @@ class FeatureTest extends TestCase
 
         $this->assertCount(1, $changes);
         $this->assertEquals('added', $changes[0]->type());
-        $this->assertEquals( 'Added a new feature.', $changes[0]->message());
+        $this->assertEquals('Added a new feature.', $changes[0]->message());
     }
 }

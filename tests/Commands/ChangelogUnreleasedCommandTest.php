@@ -46,8 +46,8 @@ class ChangelogUnreleasedCommandTest extends LaravelTestCase
         $this->fakeAdapter();
 
         $this->artisan('changelog:unreleased')
-             ->expectsOutput('Unreleased'
-                 . PHP_EOL . '  - Added: Added a new feature.'
-                 . PHP_EOL . '  - Removed: Removed unused trait.');
+            ->expectsOutput('Unreleased'
+                .PHP_EOL.'  - Added: Added a new feature.'
+                .PHP_EOL.'  - Removed: Removed unused trait.');
     }
 }

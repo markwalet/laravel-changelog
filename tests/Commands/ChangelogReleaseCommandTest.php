@@ -6,7 +6,6 @@ use MarkWalet\Changelog\Adapters\FakeReleaseAdapter;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
-use MarkWalet\Changelog\Exceptions\VersionAlreadyExistsException;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 
@@ -46,7 +45,7 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
     {
         $adapter = $this->fakeAdapter();
         $this->artisan('changelog:release', [
-            'version' => 'v1.0.2'
+            'version' => 'v1.0.2',
         ]);
 
         $releases = $adapter->all('fake-folder');
