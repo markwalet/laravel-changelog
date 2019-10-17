@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...master)
 
+## [v1.1.1 (2019-10-17)](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...v1.1.1)
+
 ### Fixed
 - Fixed minimum stability issues.
 
