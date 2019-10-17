@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...master)
 
+### Fixed
+- Fixed minimum stability issues.
+
 ## [v1.1.0 (2019-10-10)](https://github.com/markwalet/laravel-changelog/compare/v1.0.2...v1.1.0)
 
 ### Added
@@ -12,7 +15,6 @@
 
 ### Removed
 - Removed Coveralls integration. ([#9](https://github.com/markwalet/laravel-changelog/issues/9))
-
 
 ## [v1.0.2 (2019-09-29)](https://github.com/markwalet/laravel-changelog/compare/v1.0.1...v1.0.2)
 
