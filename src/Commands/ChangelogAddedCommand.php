@@ -3,9 +3,11 @@
 namespace MarkWalet\Changelog\Commands;
 
 use Illuminate\Console\Command;
+use MarkWalet\Changelog\Concerns\CallsAddCommand;
 
 class ChangelogAddedCommand extends Command
 {
+    use CallsAddCommand;
 
     /**
      * The name and signature of the console command.
@@ -26,11 +28,6 @@ class ChangelogAddedCommand extends Command
      */
     public function handle()
     {
-        $this->call('changelog:add',
-                    [
-                        '--type' => 'added',
-                        '--message' => $this->argument('message')
-                    ]
-        );
+        $this->callAdd('added', $this->argument('message'));
     }
 }
