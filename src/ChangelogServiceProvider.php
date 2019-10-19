@@ -9,9 +9,15 @@ use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Adapters\XmlFeatureAdapter;
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
 use MarkWalet\Changelog\Commands\ChangelogAddCommand;
+use MarkWalet\Changelog\Commands\ChangelogAddedCommand;
+use MarkWalet\Changelog\Commands\ChangelogChangedCommand;
+use MarkWalet\Changelog\Commands\ChangelogDeprecatedCommand;
+use MarkWalet\Changelog\Commands\ChangelogFixedCommand;
 use MarkWalet\Changelog\Commands\ChangelogGenerateCommand;
 use MarkWalet\Changelog\Commands\ChangelogListCommand;
 use MarkWalet\Changelog\Commands\ChangelogReleaseCommand;
+use MarkWalet\Changelog\Commands\ChangelogRemovedCommand;
+use MarkWalet\Changelog\Commands\ChangelogSecurityCommand;
 use MarkWalet\Changelog\Commands\ChangelogUnreleasedCommand;
 
 class ChangelogServiceProvider extends ServiceProvider
@@ -74,6 +80,15 @@ class ChangelogServiceProvider extends ServiceProvider
                 ChangelogUnreleasedCommand::class,
                 ChangelogReleaseCommand::class,
                 ChangelogGenerateCommand::class,
+
+                //aliases
+                ChangelogAddedCommand::class,
+                ChangelogChangedCommand::class,
+                ChangelogDeprecatedCommand::class,
+                ChangelogRemovedCommand::class,
+                ChangelogFixedCommand::class,
+                ChangelogSecurityCommand::class,
+
             ]);
         }
     }
