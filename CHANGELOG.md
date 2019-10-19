@@ -3,7 +3,12 @@
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...master)
 
 ### Added
-- Added alias command `changelog:added {message}` to quickly add a new added entry 
+- Added alias command `changelog:added {message}` to quickly add a new added entry
+- Added alias command `changelog:changed {message}` to quickly add a new changed entry
+- Added alias command `changelog:deprecated {message}` to quickly add a new deprecated entry
+- Added alias command `changelog:removed {message}` to quickly add a new removed entry
+- Added alias command `changelog:fixed {message}` to quickly add a new fixed entry
+- Added alias command `changelog:security {message}` to quickly add a new security entry
 
 ## [v1.1.1 (2019-10-17)](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...v1.1.1)
 
