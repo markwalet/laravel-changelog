@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MarkWalet\Changelog\Tests\Commands;
-
 
 use MarkWalet\Changelog\Adapters\FakeFeatureAdapter;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
@@ -11,7 +9,7 @@ use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
 
 /**
- * Class ChangelogAddedCommandTest
+ * Class ChangelogAddedCommandTest.
  */
 class ChangelogAddedCommandTest extends LaravelTestCase
 {
@@ -52,7 +50,8 @@ class ChangelogAddedCommandTest extends LaravelTestCase
      *
      * @param string $alias
      */
-    public function the_alias_commands_work(string $alias){
+    public function the_alias_commands_work(string $alias)
+    {
         $this->app['config']['changelog.path'] = 'test-path';
         $adapter = $this->fakeAdapter();
         $this->fakeBranch('test-branch');

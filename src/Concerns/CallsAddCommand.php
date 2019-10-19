@@ -11,7 +11,7 @@ trait CallsAddCommand
         Artisan::call('changelog:add',
                     [
                         '--type' => $type,
-                        '--message' => $message
+                        '--message' => $message,
                     ]
         );
     }
