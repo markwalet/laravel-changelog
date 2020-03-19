@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...master)
 
+## [v1.2.0 (2020-03-19)](https://github.com/markwalet/laravel-changelog/compare/v1.1.1...v1.2.0)
+
 ### Added
 - Add support for Laravel 7. ([#19](https://github.com/markwalet/laravel-changelog/issues/19))
 
