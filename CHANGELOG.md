@@ -1,6 +1,15 @@
 # Release Notes
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.1.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.2.0...master)
+
+### Added
+- Added Github Actions integration.
+- Added PHP 7.4 support.
+ 
+### Removed
+- Removed support for Laravel 5.
+- Removed support for PHP 7.1
+- Removed Travis integration.
 
 ## [v1.2.0 (2020-03-19)](https://github.com/markwalet/laravel-changelog/compare/v1.1.1...v1.2.0)
 
