@@ -1,11 +1,11 @@
 # Laravel Changelog
 
+[![MIT Licensed](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-changelog/v/stable)](https://packagist.org/packages/markwalet/laravel-changelog)
 [![Build Status](https://travis-ci.com/markwalet/laravel-changelog.svg?branch=master)](https://travis-ci.com/markwalet/laravel-changelog)
 [![Coverage](https://codecov.io/gh/markwalet/laravel-changelog/branch/master/graph/badge.svg)](https://codecov.io/gh/markwalet/laravel-changelog)
 [![StyleCI](https://github.styleci.io/repos/202197691/shield?branch=master)](https://github.styleci.io/repos/202197691)
 [![Total Downloads](https://poser.pugx.org/markwalet/laravel-changelog/downloads)](https://packagist.org/packages/markwalet/laravel-changelog)
-[![Latest Stable Version](https://poser.pugx.org/markwalet/laravel-changelog/v/stable)](https://packagist.org/packages/markwalet/laravel-changelog)
-[![License](https://poser.pugx.org/markwalet/laravel-changelog/license)](https://packagist.org/packages/markwalet/laravel-changelog)
 
 A Laravel package that prevents merge conflicts on your changelog file.
 
