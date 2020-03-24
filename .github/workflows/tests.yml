@@ -1,0 +1,57 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [7.2, 7.3, 7.4]
+        illuminate: [6.*, 7.*]
+        stability: [prefer-lowest, prefer-stable]
+        include:
+          - illuminate: 6.*
+            testbench: 4.*
+          - illuminate: 7.*
+            testbench: 5.*
+        exclude:
+          - php: 7.4
+            illuminate: 6.*
+
+    name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-php-${{ matrix.php }}-illuminate-${{ matrix.illuminate }}-composer-${{ hashFiles('composer.json') }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd
+          coverage: none
+
+      - name: Install dependencies
+        run: |
+          composer require "illuminate/console:${{ matrix.illuminate }}" --no-interaction --no-update
+          composer require "illuminate/contracts:${{ matrix.illuminate }}" --no-interaction --no-update
+          composer require "illuminate/support:${{ matrix.illuminate }}" --no-interaction --no-update
+          composer require "illuminate/filesystem:${{ matrix.illuminate }}" --no-interaction --no-update  
+          composer require "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-suggest
+
+      - name: Execute tests
+        run: vendor/bin/phpunit --verbose
