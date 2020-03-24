@@ -5,6 +5,7 @@
 ### Added
 - Added Github Actions integration.
 - Added PHP 7.4 support.
+- Added a `.gitattributes` file to shrink down releases.
  
 ### Removed
 - Removed support for Laravel 5.
