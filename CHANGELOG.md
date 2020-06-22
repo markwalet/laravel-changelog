@@ -1,11 +1,12 @@
 # Release Notes
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.0...master)
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.3.1...master)
+## [v1.4.0 (2020-06-22)](https://github.com/markwalet/laravel-changelog/compare/v1.3.1...v1.4.0)
 
 ### Added
 - Added a Slack formatter ([#22](https://github.com/markwalet/laravel-changelog/issues/22))
 
-## [v1.3.0 (2020-03-25)](https://github.com/markwalet/laravel-changelog/compare/v1.3.0...v1.3.1)
+## [v1.3.1 (2020-03-25)](https://github.com/markwalet/laravel-changelog/compare/v1.3.0...v1.3.1)
 
 ### Changed
 - Updated build status badge in readme.
