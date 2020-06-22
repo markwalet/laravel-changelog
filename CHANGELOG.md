@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.3.1...master)
 
+### Added
+- Added a Slack formatter ([#22](https://github.com/markwalet/laravel-changelog/issues/22))
+
 ## [v1.3.0 (2020-03-25)](https://github.com/markwalet/laravel-changelog/compare/v1.3.0...v1.3.1)
 
 ### Changed
