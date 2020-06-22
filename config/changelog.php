@@ -1,6 +1,7 @@
 <?php
 
 use MarkWalet\Changelog\Formatters\MarkdownChangelogFormatter;
+use MarkWalet\Changelog\Formatters\SlackChangelogFormatter;
 use MarkWalet\Changelog\Formatters\TextChangelogFormatter;
 
 return [
@@ -48,6 +49,10 @@ return [
         ],
         'markdown' => [
             'driver' => MarkdownChangelogFormatter::class,
+            'capitalize' => true,
+        ],
+        'slack' => [
+            'driver' => SlackChangelogFormatter::class,
             'capitalize' => true,
         ],
     ],
