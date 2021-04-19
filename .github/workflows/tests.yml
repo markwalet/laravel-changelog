@@ -13,17 +13,21 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [7.2, 7.3, 7.4]
-        illuminate: [6.*, 7.*]
-        stability: [prefer-lowest, prefer-stable]
+        php: [ 7.2, 7.3, 7.4 ]
+        illuminate: [ 6.*, 7.*, 8.* ]
+        stability: [ prefer-lowest, prefer-stable ]
         include:
           - illuminate: 6.*
             testbench: 4.*
           - illuminate: 7.*
             testbench: 5.*
+          - illuminate: 8.*
+            testbench: 6.*
         exclude:
           - php: 7.4
             illuminate: 6.*
+          - php: 7.2
+            illuminate: 8.*
 
     name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
 
@@ -49,7 +53,7 @@ jobs:
           composer require "illuminate/console:${{ matrix.illuminate }}" --no-interaction --no-update
           composer require "illuminate/contracts:${{ matrix.illuminate }}" --no-interaction --no-update
           composer require "illuminate/support:${{ matrix.illuminate }}" --no-interaction --no-update
-          composer require "illuminate/filesystem:${{ matrix.illuminate }}" --no-interaction --no-update  
+          composer require "illuminate/filesystem:${{ matrix.illuminate }}" --no-interaction --no-update
           composer require "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-suggest
 
