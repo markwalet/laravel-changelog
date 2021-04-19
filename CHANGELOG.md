@@ -1,5 +1,7 @@
 # Release Notes
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...master)
+
+## [v1.4.1 (2021-04-19)](https://github.com/markwalet/laravel-changelog/compare/v1.4.0...v1.4.1)
 
 ### Added
 - Added Laravel 8 support.
