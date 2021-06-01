@@ -44,6 +44,28 @@ class XmlFeatureAdapterTest extends TestCase
     }
 
     /** @test */
+    public function it_creates_the_directory_recursively_if_it_does_not_exist()
+    {
+        $adapter = $this->adapter();
+        $feature = new Feature([
+            new Change('added', 'Added a new feature.'),
+        ]);
+        $folderA = __DIR__.'/../test-data/write-test/nested';
+        $folderB = $folderA.'/second-child';
+        $path = $folderB.'/example.xml';
+
+        $adapter->write($path, $feature);
+
+        $contents = file_get_contents($path);
+
+        $this->assertStringContainsString('<change type="added">Added a new feature.</change>', $contents);
+
+        unlink($path);
+        rmdir($folderB);
+        rmdir($folderA);
+    }
+
+    /** @test */
     public function it_throws_an_exception_when_the_file_is_invalid()
     {
         $adapter = $this->adapter();

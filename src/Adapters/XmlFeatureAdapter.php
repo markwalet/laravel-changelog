@@ -80,7 +80,7 @@ class XmlFeatureAdapter implements FeatureAdapter
 
         $directory = dirname($path);
         if ($this->filesystem->isDirectory($directory) === false) {
-            $this->filesystem->makeDirectory($directory);
+            $this->filesystem->makeDirectory($directory, 0755, true);
         }
 
         $this->filesystem->put($path, $output);

@@ -1,6 +1,9 @@
 # Release Notes
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...master)
 
+### Fixed
+- Fixed recursive folder creation ([#26](https://github.com/markwalet/laravel-changelog/issues/26))
+
 ## [v1.4.1 (2021-04-19)](https://github.com/markwalet/laravel-changelog/compare/v1.4.0...v1.4.1)
 
 ### Added
