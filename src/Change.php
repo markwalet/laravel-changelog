@@ -4,15 +4,11 @@ namespace MarkWalet\Changelog;
 
 class Change
 {
-    /**
-     * @var string
-     */
-    private $type;
+    /** @var string */
+    private string $type;
 
-    /**
-     * @var string
-     */
-    private $message;
+    /** @var string */
+    private string $message;
 
     /**
      * Change constructor.

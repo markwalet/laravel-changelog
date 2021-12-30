@@ -1,5 +1,14 @@
 # Release Notes
+
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...master)
+
+## Added
+- Added PHP 8.0 support
+- Added PHP 8.1 support
+
+## Removed
+- Removed PHP 7.2 support
+- Removed PHP 7.3 support
 
 ### Fixed
 - Fixed recursive folder creation ([#26](https://github.com/markwalet/laravel-changelog/issues/26))
