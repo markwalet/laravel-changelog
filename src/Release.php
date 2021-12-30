@@ -4,15 +4,11 @@ namespace MarkWalet\Changelog;
 
 class Release
 {
-    /**
-     * @var Change[]|array
-     */
-    private $changes;
+    /** @var Change[]|array */
+    private array $changes;
 
-    /**
-     * @var string
-     */
-    private $version;
+    /** @var string */
+    private string $version;
 
     /**
      * Change constructor.

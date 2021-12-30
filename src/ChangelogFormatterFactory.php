@@ -10,12 +10,8 @@ use MarkWalet\Changelog\Formatters\ChangelogFormatter;
 
 class ChangelogFormatterFactory
 {
-    /**
-     * The application instance.
-     *
-     * @var Application
-     */
-    protected $app;
+    /** @var Application */
+    protected Application $app;
 
     /**
      * ChangelogFormatterFactory constructor.

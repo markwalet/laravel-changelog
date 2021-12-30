@@ -6,10 +6,8 @@ use Illuminate\Support\Arr;
 
 class Feature
 {
-    /**
-     * @var Change[]|array
-     */
-    private $changes;
+    /** @var Change[]|array */
+    private array $changes;
 
     /**
      * Feature constructor.
