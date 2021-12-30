@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...master)
 
+## [v1.5.0 (2021-12-30)](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...v1.5.0)
+
 ## Added
 - Added PHP 8.0 support
 - Added PHP 8.1 support
