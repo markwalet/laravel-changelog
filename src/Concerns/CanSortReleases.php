@@ -23,7 +23,15 @@ trait CanSortReleases
                     return 1;
                 }
 
-                return version_compare($first, $second, '<=');
+                if ($first === $second) {
+                    return 0;
+                }
+
+                if (strtolower($first[0]) === 'v' && strtolower($second[0]) === 'v') {
+                    return version_compare($second, $first);
+                }
+
+                return strcmp($second, $first);
             });
         }
 
