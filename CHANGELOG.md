@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.0...master)
+
+## [v1.6.0 (2021-12-30)](https://github.com/markwalet/laravel-changelog/compare/v1.5.0...v1.6.0)
 
 ### Added
 - Added Laravel 9 support.
