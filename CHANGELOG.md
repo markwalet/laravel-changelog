@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...master)
+
+## [v1.6.0 (2022-03-27)](https://github.com/markwalet/laravel-changelog/compare/v1.6.0...v1.6.1)
 
 ### Fixed
 - Fixed support for nested branch names ([#33](https://github.com/markwalet/laravel-changelog/issues/33))
