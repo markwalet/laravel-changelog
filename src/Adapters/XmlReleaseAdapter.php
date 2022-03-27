@@ -2,11 +2,13 @@
 
 namespace MarkWalet\Changelog\Adapters;
 
+use Illuminate\Support\Facades\File;
 use MarkWalet\Changelog\Concerns\CanSortReleases;
 use MarkWalet\Changelog\Exceptions\DirectoryNotFoundException;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 use MarkWalet\Changelog\Exceptions\VersionAlreadyExistsException;
 use MarkWalet\Changelog\Release;
+use Symfony\Component\Finder\SplFileInfo;
 
 class XmlReleaseAdapter implements ReleaseAdapter
 {
@@ -34,19 +36,19 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function read(string $path, string $version): Release
     {
-        $fullPath = $path.DIRECTORY_SEPARATOR.$version;
+        $fullPath = realpath($path.DIRECTORY_SEPARATOR.$version);
 
         if ($this->exists($path, $version) === false) {
             throw new FileNotFoundException($fullPath);
         }
 
-        $files = array_filter(scandir($fullPath), function ($p) {
-            return substr($p, -4) === '.xml';
-        });
+        $files = collect(File::allFiles($fullPath))
+            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'xml')
+            ->map(fn (SplFileInfo $file) => $file->getPathname());
 
         $release = new Release($version);
         foreach ($files as $file) {
-            $feature = $this->featureAdapter->read($fullPath.DIRECTORY_SEPARATOR.$file);
+            $feature = $this->featureAdapter->read($file);
             $release->add($feature);
         }
 
