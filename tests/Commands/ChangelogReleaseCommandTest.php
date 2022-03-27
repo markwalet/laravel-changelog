@@ -44,6 +44,7 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
     public function it_can_release_a_new_version()
     {
         $adapter = $this->fakeAdapter();
+
         $this->artisan('changelog:release', [
             'version' => 'v1.0.2',
         ]);
@@ -53,7 +54,27 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
             return $release->version();
         });
 
+        $this->assertCount(3, $versions);
         $this->assertContains('v1.0.2', $versions);
+        $this->assertContains('v1.0.1', $versions);
+        $this->assertContains('unreleased', $versions);
+    }
+
+    /** @test */
+    public function it_shows_an_error_when_the_release_already_exists(): void
+    {
+        $adapter = $this->fakeAdapter();
+
+        $this->artisan('changelog:release', [
+            'version' => 'v1.0.1',
+        ])->expectsOutput('Version v1.0.1 already exists.');
+
+        $releases = $adapter->all('fake-folder');
+        $versions = collect($releases)->map(function (Release $release) {
+            return $release->version();
+        });
+
+        $this->assertCount(2, $versions);
         $this->assertContains('v1.0.1', $versions);
         $this->assertContains('unreleased', $versions);
     }
