@@ -35,7 +35,7 @@ class ChangelogReleaseCommand extends Command
         try {
             $adapter->release($path, $version);
         } catch (VersionAlreadyExistsException $e) {
-            $this->error("Version {$e->getVersion()}");
+            $this->error("Version {$e->getVersion()} already exists.");
         }
     }
 }

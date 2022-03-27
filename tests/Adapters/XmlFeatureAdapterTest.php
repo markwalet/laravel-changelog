@@ -7,9 +7,9 @@ use MarkWalet\Changelog\Adapters\XmlFeatureAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
-use PHPUnit\Framework\TestCase;
+use MarkWalet\Changelog\Tests\LaravelTestCase;
 
-class XmlFeatureAdapterTest extends TestCase
+class XmlFeatureAdapterTest extends LaravelTestCase
 {
     use FeatureAdapterTests;
 

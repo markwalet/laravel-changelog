@@ -7,9 +7,9 @@ use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
-use PHPUnit\Framework\TestCase;
+use MarkWalet\Changelog\Tests\LaravelTestCase;
 
-class FakeReleaseAdapterTest extends TestCase
+class FakeReleaseAdapterTest extends LaravelTestCase
 {
     use ReleaseAdapterTests;
 
@@ -45,6 +45,13 @@ class FakeReleaseAdapterTest extends TestCase
             $release->add(new Feature([
                 new Change('changed', 'Renamed methods in the adapter interfaces.'),
                 new Change('added', 'Added a feature.'),
+            ]));
+        }));
+        $adapter->addRelease($this->readNested, 'unreleased', tap(new Release('unreleased'), function (Release $release) {
+            $release->add(new Feature([
+                new Change('added', 'Added helper commands.'),
+                new Change('fixed', 'Fixed a bug.'),
+                new Change('removed', 'Removed unused trait.'),
             ]));
         }));
 

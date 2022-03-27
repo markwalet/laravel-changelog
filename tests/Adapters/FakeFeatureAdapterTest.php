@@ -6,9 +6,9 @@ use MarkWalet\Changelog\Adapters\FakeFeatureAdapter;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
-use PHPUnit\Framework\TestCase;
+use MarkWalet\Changelog\Tests\LaravelTestCase;
 
-class FakeFeatureAdapterTest extends TestCase
+class FakeFeatureAdapterTest extends LaravelTestCase
 {
     use FeatureAdapterTests;
 

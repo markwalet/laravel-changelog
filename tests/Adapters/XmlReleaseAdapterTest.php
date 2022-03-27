@@ -3,9 +3,9 @@
 namespace MarkWalet\Changelog\Tests\Adapters;
 
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
-use PHPUnit\Framework\TestCase;
+use MarkWalet\Changelog\Tests\LaravelTestCase;
 
-class XmlReleaseAdapterTest extends TestCase
+class XmlReleaseAdapterTest extends LaravelTestCase
 {
     use ReleaseAdapterTests;
 

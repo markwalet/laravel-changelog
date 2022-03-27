@@ -12,6 +12,7 @@ trait ReleaseAdapterTests
     public $readPath = __DIR__.'/../test-data';
     public $readVersion = 'multiple';
     public $readAll = __DIR__.'/../test-data/releases';
+    public $readNested = __DIR__.'/../test-data/nested-test';
 
     /**
      * Get an adapter instance.
@@ -50,6 +51,24 @@ trait ReleaseAdapterTests
         $this->assertEquals('Renamed methods in the adapter interfaces.', $changes[2]->message());
         $this->assertEquals('removed', $changes[3]->type());
         $this->assertEquals('Removed unused trait.', $changes[3]->message());
+    }
+
+    /** @test */
+    public function it_can_read_changes_of_a_nested_release()
+    {
+        $adapter = $this->adapter();
+
+        $release = $adapter->read($this->readNested, 'unreleased');
+
+        $changes = $release->changes();
+
+        $this->assertCount(3, $changes);
+        $this->assertEquals('added', $changes[0]->type());
+        $this->assertEquals('Added helper commands.', $changes[0]->message());
+        $this->assertEquals('fixed', $changes[1]->type());
+        $this->assertEquals('Fixed a bug.', $changes[1]->message());
+        $this->assertEquals('removed', $changes[2]->type());
+        $this->assertEquals('Removed unused trait.', $changes[2]->message());
     }
 
     /** @test */

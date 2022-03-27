@@ -13,7 +13,7 @@ class DirectoryNotFoundException extends RuntimeException
      */
     public function __construct($path)
     {
-        $message = "Directory `{$path}` is not found.";
+        $message = "Directory `$path` is not found.";
 
         parent::__construct($message);
     }
