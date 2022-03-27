@@ -13,7 +13,7 @@ class FileNotFoundException extends RuntimeException
      */
     public function __construct($path)
     {
-        $message = "File `{$path}` is not found.";
+        $message = "File `$path` is not found.";
 
         parent::__construct($message);
     }

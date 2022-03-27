@@ -9,7 +9,7 @@ class VersionAlreadyExistsException extends RuntimeException
     /**
      * @var string
      */
-    private $version;
+    private string $version;
 
     /**
      * NoGitRepositoryException constructor.
@@ -20,7 +20,7 @@ class VersionAlreadyExistsException extends RuntimeException
     {
         $this->version = $version;
 
-        parent::__construct("Version `{$version}` already exists.");
+        parent::__construct("Version `$version` already exists.");
     }
 
     /**
