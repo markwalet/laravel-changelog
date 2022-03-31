@@ -83,7 +83,7 @@ class ChangelogAddCommand extends Command
      * @param GitDriver $gitState
      * @return string
      */
-    private function path(GitDriver $gitState)
+    private function path(GitDriver $gitState): string
     {
         return config('changelog.path')
             .DIRECTORY_SEPARATOR.'unreleased'

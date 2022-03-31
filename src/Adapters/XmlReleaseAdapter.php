@@ -17,7 +17,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
     /**
      * @var XmlFeatureAdapter
      */
-    private $featureAdapter;
+    private XmlFeatureAdapter $featureAdapter;
 
     /**
      * XmlReleaseAdapter constructor.

@@ -40,7 +40,7 @@ class ChangelogFormatterFactory
         $driver = Arr::pull($config, 'driver');
 
         if (Arr::has(class_parents($driver), ChangelogFormatter::class) === false) {
-            throw new InvalidArgumentException("The driver {$driver} is not a valid driver.");
+            throw new InvalidArgumentException("The driver $driver is not a valid driver.");
         }
 
         return new $driver($config);

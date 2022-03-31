@@ -11,13 +11,15 @@ class FakeFeatureAdapter implements FeatureAdapter
     /**
      * @var Change[]|array
      */
-    private $changes = [];
+    private array $changes = [];
 
     /**
+     * Set a lis of changes for the given path.
+     *
      * @param string $path
      * @param Feature $changes
      */
-    public function setChanges(string $path, Feature $changes)
+    public function setChanges(string $path, Feature $changes): void
     {
         $this->changes[$path] = $changes;
     }

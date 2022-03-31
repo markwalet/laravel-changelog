@@ -3,6 +3,7 @@
 namespace MarkWalet\Changelog\Adapters;
 
 use DOMDocument;
+use Illuminate\Contracts\Filesystem\FileNotFoundException as FilesystemFileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
@@ -14,7 +15,7 @@ class XmlFeatureAdapter implements FeatureAdapter
     /**
      * @var Filesystem
      */
-    private $filesystem;
+    private Filesystem $filesystem;
 
     /**
      * XmlFeatureAdapter constructor.
@@ -34,13 +35,13 @@ class XmlFeatureAdapter implements FeatureAdapter
     {
         try {
             $content = $this->filesystem->get($path);
-        } catch (\Illuminate\Contracts\Filesystem\FileNotFoundException $e) {
+        } catch (FilesystemFileNotFoundException $e) {
             throw new FileNotFoundException($path);
         }
 
         $element = simplexml_load_string($content);
 
-        $feature = new Feature;
+        $feature = new Feature();
 
         foreach ($element->children() as $change) {
             $type = $change->attributes()['type'];

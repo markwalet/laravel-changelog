@@ -15,10 +15,10 @@ class FakeReleaseAdapter implements ReleaseAdapter
     /**
      * @var Release[][]|array
      */
-    private $releases = [];
+    private array $releases = [];
 
     /**
-     * A a release to the list.
+     * A release to the list.
      *
      * @param string $path
      * @param string $version
