@@ -37,8 +37,8 @@ class XmlReleaseAdapterTest extends LaravelTestCase
         $this->assertFileExists($path.'/v1.0.2/feature-2.xml');
         $this->assertFileDoesNotExist($path.'/unreleased/nested');
 
-        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/nested', __DIR__.'/../test-data/release-write-test/unreleased/nested');
-        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/feature-2.xml', __DIR__.'/../test-data/release-write-test/unreleased/feature-2.xml');
+        rename(__DIR__.'/../test-data/release-write-test/v1.0.2/nested', __DIR__.'/../test-data/release-write-test/unreleased/nested');
+        rename(__DIR__.'/../test-data/release-write-test/v1.0.2/feature-2.xml', __DIR__.'/../test-data/release-write-test/unreleased/feature-2.xml');
         rmdir(__DIR__.'/../test-data/release-write-test/v1.0.2');
     }
 }
