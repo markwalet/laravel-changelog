@@ -25,7 +25,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function __construct()
     {
-        $this->featureAdapter = new XmlFeatureAdapter;
+        $this->featureAdapter = new XmlFeatureAdapter();
     }
 
     /**
@@ -69,17 +69,12 @@ class XmlReleaseAdapter implements ReleaseAdapter
         $old = $path.DIRECTORY_SEPARATOR.'unreleased';
         $new = $path.DIRECTORY_SEPARATOR.$version;
 
-//        $files = collect(File::files($old))
-//            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'xml')
-//            ->merge(File::cleanDirectory($old))
-//            ->map(fn (SplFileInfo $file) => $file->getRelativePathname()));
-
         File::makeDirectory($new);
         collect(File::glob($old.DIRECTORY_SEPARATOR.'**'))
             ->map(fn (string $path) => substr($path, strlen($old)))
             ->each(function (string $file) use ($old, $new) {
-                $source = $old . $file;
-                $target = $new . $file;
+                $source = $old.$file;
+                $target = $new.$file;
 
                 File::move($source, $target);
             });

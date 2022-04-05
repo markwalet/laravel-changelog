@@ -2,7 +2,6 @@
 
 namespace MarkWalet\Changelog\Tests\Adapters;
 
-use Illuminate\Support\Facades\File;
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 
@@ -17,7 +16,7 @@ class XmlReleaseAdapterTest extends LaravelTestCase
      */
     public function adapter(): XmlReleaseAdapter
     {
-        return new XmlReleaseAdapter;
+        return new XmlReleaseAdapter();
     }
 
     /** @test */
@@ -26,20 +25,20 @@ class XmlReleaseAdapterTest extends LaravelTestCase
         $adapter = $this->adapter();
         $path = __DIR__.'/../test-data/release-write-test';
 
-        $this->assertFileExists($path. '/unreleased/.gitkeep');
-        $this->assertFileExists($path. '/unreleased/nested/feature-1.xml');
-        $this->assertFileExists($path. '/unreleased/feature-2.xml');
-        $this->assertFileDoesNotExist($path. '/v1.0.2');
+        $this->assertFileExists($path.'/unreleased/.gitkeep');
+        $this->assertFileExists($path.'/unreleased/nested/feature-1.xml');
+        $this->assertFileExists($path.'/unreleased/feature-2.xml');
+        $this->assertFileDoesNotExist($path.'/v1.0.2');
 
         $adapter->release($path, 'v1.0.2');
 
-        $this->assertFileExists($path. '/unreleased/.gitkeep');
-        $this->assertFileExists($path. '/v1.0.2/nested/feature-1.xml');
-        $this->assertFileExists($path. '/v1.0.2/feature-2.xml');
+        $this->assertFileExists($path.'/unreleased/.gitkeep');
+        $this->assertFileExists($path.'/v1.0.2/nested/feature-1.xml');
+        $this->assertFileExists($path.'/v1.0.2/feature-2.xml');
         $this->assertFileDoesNotExist($path.'/unreleased/nested');
 
-//        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/nested', __DIR__.'/../test-data/release-write-test/unreleased/nested');
-//        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/feature-2.xml', __DIR__.'/../test-data/release-write-test/unreleased/feature-2.xml');
-//        rmdir(__DIR__.'/../test-data/release-write-test/v1.0.2');
+        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/nested', __DIR__.'/../test-data/release-write-test/unreleased/nested');
+        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/feature-2.xml', __DIR__.'/../test-data/release-write-test/unreleased/feature-2.xml');
+        rmdir(__DIR__.'/../test-data/release-write-test/v1.0.2');
     }
 }

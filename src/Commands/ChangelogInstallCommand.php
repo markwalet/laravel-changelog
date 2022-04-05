@@ -27,7 +27,7 @@ class ChangelogInstallCommand extends Command
     public function handle()
     {
         File::makeDirectory($this->folder());
-        File::put($this->folder() . DIRECTORY_SEPARATOR . '.gitkeep', '');
+        File::put($this->folder().DIRECTORY_SEPARATOR.'.gitkeep', '');
     }
 
     /**
