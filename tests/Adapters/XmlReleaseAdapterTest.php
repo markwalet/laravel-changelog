@@ -2,6 +2,7 @@
 
 namespace MarkWalet\Changelog\Tests\Adapters;
 
+use Illuminate\Support\Facades\File;
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 
@@ -25,17 +26,20 @@ class XmlReleaseAdapterTest extends LaravelTestCase
         $adapter = $this->adapter();
         $path = __DIR__.'/../test-data/release-write-test';
 
-        $unreleasedBefore = $adapter->exists($path, 'unreleased');
-        $versionBefore = $adapter->exists($path, 'v1.0.2');
+        $this->assertFileExists($path. '/unreleased/.gitkeep');
+        $this->assertFileExists($path. '/unreleased/nested/feature-1.xml');
+        $this->assertFileExists($path. '/unreleased/feature-2.xml');
+        $this->assertFileDoesNotExist($path. '/v1.0.2');
+
         $adapter->release($path, 'v1.0.2');
-        $unreleasedAfter = $adapter->exists($path, 'unreleased');
-        $versionAfter = $adapter->exists($path, 'v1.0.2');
 
-        $this->assertTrue($unreleasedBefore);
-        $this->assertFalse($versionBefore);
-        $this->assertFalse($unreleasedAfter);
-        $this->assertTrue($versionAfter);
+        $this->assertFileExists($path. '/unreleased/.gitkeep');
+        $this->assertFileExists($path. '/v1.0.2/nested/feature-1.xml');
+        $this->assertFileExists($path. '/v1.0.2/feature-2.xml');
+        $this->assertFileDoesNotExist($path.'/unreleased/nested');
 
-        rename(__DIR__.'/../test-data/release-write-test/v1.0.2', __DIR__.'/../test-data/release-write-test/unreleased');
+//        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/nested', __DIR__.'/../test-data/release-write-test/unreleased/nested');
+//        rename(__DIR__ . '/../test-data/release-write-test/v1.0.2/feature-2.xml', __DIR__.'/../test-data/release-write-test/unreleased/feature-2.xml');
+//        rmdir(__DIR__.'/../test-data/release-write-test/v1.0.2');
     }
 }

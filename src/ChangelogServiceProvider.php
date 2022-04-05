@@ -10,6 +10,7 @@ use MarkWalet\Changelog\Adapters\XmlFeatureAdapter;
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
 use MarkWalet\Changelog\Commands\ChangelogAddCommand;
 use MarkWalet\Changelog\Commands\ChangelogGenerateCommand;
+use MarkWalet\Changelog\Commands\ChangelogInstallCommand;
 use MarkWalet\Changelog\Commands\ChangelogListCommand;
 use MarkWalet\Changelog\Commands\ChangelogReleaseCommand;
 use MarkWalet\Changelog\Commands\ChangelogUnreleasedCommand;
@@ -69,6 +70,7 @@ class ChangelogServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
+                ChangelogInstallCommand::class,
                 ChangelogAddCommand::class,
                 ChangelogListCommand::class,
                 ChangelogUnreleasedCommand::class,
