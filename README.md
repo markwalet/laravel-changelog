@@ -24,7 +24,7 @@ Laravel >=5.5 uses Package auto-discovery, so you don't have to register the ser
 MarkWalet\Changelog\ChangelogServiceProvider::class
 ```
 
-After installation, you should create a folder where all the changes will be stored in. This defaults to `base_path('.changes')`.
+After installation, verify and change the config for your specific needs and run `php artisan changelog:install`. This creates a folder where all the changes will be stored in. This defaults to `base_path('.changes')`.
 
 ## Usage
 

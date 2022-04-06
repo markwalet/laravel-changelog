@@ -2,6 +2,10 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...master)
 
+## Added
+- Make sure the unreleased folder stays in the filesystem for better diff comparisons ([#4](https://github.com/markwalet/laravel-changelog/issues/4))
+- Add a `changelog:install` artisan command.
+
 ## [v1.6.1 (2022-03-27)](https://github.com/markwalet/laravel-changelog/compare/v1.6.0...v1.6.1)
 
 ### Fixed
@@ -10,7 +14,7 @@
 ## [v1.6.0 (2021-12-30)](https://github.com/markwalet/laravel-changelog/compare/v1.5.0...v1.6.0)
 
 ### Added
-- Added Laravel 9 support.
+- Added Laravel 9 support
 
 ## [v1.5.0 (2021-12-30)](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...v1.5.0)
 
