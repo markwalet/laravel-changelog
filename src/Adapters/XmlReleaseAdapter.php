@@ -2,6 +2,7 @@
 
 namespace MarkWalet\Changelog\Adapters;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use MarkWalet\Changelog\Concerns\CanSortReleases;
 use MarkWalet\Changelog\Exceptions\DirectoryNotFoundException;
@@ -24,7 +25,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function __construct()
     {
-        $this->featureAdapter = new XmlFeatureAdapter;
+        $this->featureAdapter = new XmlFeatureAdapter();
     }
 
     /**
@@ -36,14 +37,11 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function read(string $path, string $version): Release
     {
-        $fullPath = realpath($path.DIRECTORY_SEPARATOR.$version);
-
         if ($this->exists($path, $version) === false) {
-            throw new FileNotFoundException($fullPath);
+            throw new FileNotFoundException(realpath($path.DIRECTORY_SEPARATOR.$version));
         }
 
-        $files = collect(File::allFiles($fullPath))
-            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'xml')
+        $files = $this->filesForRelease($path, $version)
             ->map(fn (SplFileInfo $file) => $file->getPathname());
 
         $release = new Release($version);
@@ -63,15 +61,23 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function release(string $path, string $version): void
     {
-        $old = $path.DIRECTORY_SEPARATOR.'unreleased';
-        $new = $path.DIRECTORY_SEPARATOR.$version;
-
         // Prevent release if the given version already exists.
         if ($this->exists($path, $version)) {
             throw new VersionAlreadyExistsException($version);
         }
 
-        rename($old, $new);
+        $old = $path.DIRECTORY_SEPARATOR.'unreleased';
+        $new = $path.DIRECTORY_SEPARATOR.$version;
+
+        File::makeDirectory($new);
+        collect(File::glob($old.DIRECTORY_SEPARATOR.'**'))
+            ->map(fn (string $path) => substr($path, strlen($old)))
+            ->each(function (string $file) use ($old, $new) {
+                $source = $old.$file;
+                $target = $new.$file;
+
+                File::move($source, $target);
+            });
     }
 
     /**
@@ -112,5 +118,18 @@ class XmlReleaseAdapter implements ReleaseAdapter
         $fullPath = $path.DIRECTORY_SEPARATOR.$version;
 
         return file_exists($fullPath) && is_dir($fullPath);
+    }
+
+    /**
+     * Get all xml files for a given release.
+     *
+     * @param string $path
+     * @param string $version
+     * @return Collection<SplFileInfo>
+     */
+    private function filesForRelease(string $path, string $version): Collection
+    {
+        return collect(File::allFiles($path.DIRECTORY_SEPARATOR.$version))
+            ->filter(fn (SplFileInfo $file) => $file->getExtension() === 'xml');
     }
 }
