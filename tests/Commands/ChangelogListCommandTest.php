@@ -46,11 +46,11 @@ class ChangelogListCommandTest extends LaravelTestCase
         $this->fakeAdapter();
 
         $this->artisan('changelog:list')
-            ->expectsOutput('Unreleased'
-                .PHP_EOL.'  - Added: Added a new feature.'
-                .PHP_EOL.'V1.0.1'
-                .PHP_EOL.'  - Added: Added a third feature.'
-                .PHP_EOL.'  - Added: Added helper commands.'
-                .PHP_EOL.'  - Removed: Removed unused trait.');
+            ->expectsOutput('Unreleased')
+            ->expectsOutput('  - Added: Added a new feature.')
+            ->expectsOutput('V1.0.1')
+            ->expectsOutput('  - Added: Added a third feature.')
+            ->expectsOutput('  - Added: Added helper commands.')
+            ->expectsOutput('  - Removed: Removed unused trait.');
     }
 }
