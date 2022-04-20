@@ -38,7 +38,7 @@ class ChangelogListCommand extends Command
 
         $lines = explode(PHP_EOL, $formatter->multiple($releases));
 
-        foreach($lines as $line) {
+        foreach ($lines as $line) {
             $this->line($line);
         }
     }

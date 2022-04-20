@@ -38,7 +38,7 @@ class ChangelogUnreleasedCommand extends Command
 
         $lines = explode(PHP_EOL, $formatter->single($release));
 
-        foreach($lines as $line) {
+        foreach ($lines as $line) {
             $this->line($line);
         }
     }
