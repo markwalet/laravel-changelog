@@ -28,11 +28,12 @@ After installation, verify and change the config for your specific needs and run
 
 ## Usage
 
-The main functionality of this package consists of 5 commands:
+The main functionality of this package consists of 6 commands:
 
 - `php artisan changelog:add {--type=} {--message=}` (Add a change to the current feature entry)
 - `php artisan changelog:list` (Show a list of changes for all versions)
 - `php artisan changelog:unreleased` (Show a list of unreleased changes)
+- `php artisan changelog:current` (Show a list of unreleased changes for your current branch)
 - `php artisan changelog:release` (Move all unreleased changes to a new version)
 - `php artisan changelog:generate {--dry-run} {--path=}` (Generate a markdown file based on your changes. The path option can be empty)
 
@@ -43,4 +44,4 @@ The default configuration is defined in `changelog.php`. If you want to edit thi
 php artisan vendor:publish --provider="MarkWalet\Changelog\ChangelogServiceProvider"
 ```
 
-When you publish these vendor assets, you can also edit the default template that is used when generating the changelog. The template file can be found in `resources/views/vendor/changelog/changelog.blade.php`.
+When you publish these vendor assets, you can also edit the default template that is used when generating the changelog markdown file. The template file can be found in `resources/views/vendor/changelog/changelog.blade.php`.
