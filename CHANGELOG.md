@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...master)
 
+## [v1.7.0 (2022-04-21)](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...v1.7.0)
+
 ## Added
 - Make sure the unreleased folder stays in the filesystem for better diff comparisons ([#4](https://github.com/markwalet/laravel-changelog/issues/4))
 - Add a `changelog:install` artisan command.
