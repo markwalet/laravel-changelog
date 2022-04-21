@@ -5,40 +5,40 @@
 ## [v1.7.0 (2022-04-21)](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...v1.7.0)
 
 ## Added
-- Make sure the unreleased folder stays in the filesystem for better diff comparisons ([#4](https://github.com/markwalet/laravel-changelog/issues/4))
-- Add a `changelog:install` artisan command.
-- Add a `changelog:current` artisan command.
+- Make sure the unreleased folder stays in the filesystem for better diff comparisons ([#38](https://github.com/markwalet/laravel-changelog/pull/38))
+- Add a `changelog:install` artisan command. ([#38](https://github.com/markwalet/laravel-changelog/pull/38))
+- Add a `changelog:current` artisan command. ([#42](https://github.com/markwalet/laravel-changelog/pull/42))
 
 ## Fixed
-- Made all command output show in a consistent manner.
+- Made all command output show in a consistent manner. ([#43](https://github.com/markwalet/laravel-changelog/pull/43))
 
 ## [v1.6.1 (2022-03-27)](https://github.com/markwalet/laravel-changelog/compare/v1.6.0...v1.6.1)
 
 ### Fixed
-- Fixed support for nested branch names ([#33](https://github.com/markwalet/laravel-changelog/issues/33))
+- Fixed support for nested branch names ([#35](https://github.com/markwalet/laravel-changelog/pull/35))
 
 ## [v1.6.0 (2021-12-30)](https://github.com/markwalet/laravel-changelog/compare/v1.5.0...v1.6.0)
 
 ### Added
-- Added Laravel 9 support
+- Added Laravel 9 support ([#32](https://github.com/markwalet/laravel-changelog/pull/32))
 
 ## [v1.5.0 (2021-12-30)](https://github.com/markwalet/laravel-changelog/compare/v1.4.1...v1.5.0)
 
 ## Added
 - Added PHP 8.0 support
-- Added PHP 8.1 support
+- Added PHP 8.1 support ([#31](https://github.com/markwalet/laravel-changelog/pull/31))
 
 ## Removed
 - Removed PHP 7.2 support
 - Removed PHP 7.3 support
 
 ### Fixed
-- Fixed recursive folder creation ([#26](https://github.com/markwalet/laravel-changelog/issues/26))
+- Fixed recursive folder creation ([#27](https://github.com/markwalet/laravel-changelog/pull/27))
 
 ## [v1.4.1 (2021-04-19)](https://github.com/markwalet/laravel-changelog/compare/v1.4.0...v1.4.1)
 
 ### Added
-- Added Laravel 8 support.
+- Added Laravel 8 support. ([#25](https://github.com/markwalet/laravel-changelog/pull/25))
 
 ## [v1.4.0 (2020-06-22)](https://github.com/markwalet/laravel-changelog/compare/v1.3.1...v1.4.0)
 
