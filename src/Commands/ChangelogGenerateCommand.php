@@ -49,7 +49,7 @@ class ChangelogGenerateCommand extends Command
         }
 
         file_put_contents($writePath, $content);
-        $this->info('The changelog is written to: '.$writePath);
+        $this->info("The changelog is written to: $writePath");
     }
 
     /**

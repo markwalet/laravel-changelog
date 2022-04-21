@@ -38,6 +38,7 @@ class ChangelogCurrentCommand extends Command
 
             return;
         }
+
         $feature = $adapter->read($path);
         $this->line("Changes for $branch:");
 

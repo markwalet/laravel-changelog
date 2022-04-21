@@ -36,8 +36,11 @@ class ChangelogUnreleasedCommand extends Command
 
         $release = $this->release($adapter, $path);
 
-        $formatted = $formatter->single($release);
-        $this->line($formatted);
+        $lines = explode(PHP_EOL, $formatter->single($release));
+
+        foreach ($lines as $line) {
+            $this->line($line);
+        }
     }
 
     /**

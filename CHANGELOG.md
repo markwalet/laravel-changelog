@@ -7,6 +7,9 @@
 - Add a `changelog:install` artisan command.
 - Add a `changelog:current` artisan command.
 
+## Fixed
+- Made all command output show in a consistent manner.
+
 ## [v1.6.1 (2022-03-27)](https://github.com/markwalet/laravel-changelog/compare/v1.6.0...v1.6.1)
 
 ### Fixed
