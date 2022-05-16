@@ -39,7 +39,11 @@ class XmlFeatureAdapter implements FeatureAdapter
             throw new FileNotFoundException($path);
         }
 
-        $element = simplexml_load_string($content);
+        $element = @simplexml_load_string($content);
+
+        if ($element === false) {
+            throw new InvalidXmlException("Xml file on $path is invalid.");
+        }
 
         $feature = new Feature();
 

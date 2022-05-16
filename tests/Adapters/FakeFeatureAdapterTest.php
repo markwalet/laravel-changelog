@@ -27,6 +27,8 @@ class FakeFeatureAdapterTest extends LaravelTestCase
             new Change('removed', 'Removed a deprecated function.'),
         ]);
         $adapter->write($this->readPath, $feature);
+        $adapter->writeInvalid(realpath(__DIR__.'/../test-data/invalid.xml'));
+        $adapter->writeInvalid(realpath(__DIR__.'/../test-data/incomplete.xml'));
 
         return $adapter;
     }

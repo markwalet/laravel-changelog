@@ -4,6 +4,7 @@ namespace MarkWalet\Changelog\Tests\Adapters;
 
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 
 trait FeatureAdapterTests
 {
@@ -54,6 +55,28 @@ trait FeatureAdapterTests
         $path = __DIR__.'/../test-data/not-existing.xml';
 
         $this->expectException(FileNotFoundException::class);
+
+        $adapter->read($path);
+    }
+
+    /** @test */
+    public function it_throws_an_exception_when_it_tries_to_read_an_invalid_xml_file(): void
+    {
+        $adapter = $this->adapter();
+        $path = realpath(__DIR__.'/../test-data/invalid.xml');
+
+        $this->expectException(InvalidXmlException::class);
+
+        $adapter->read($path);
+    }
+
+    /** @test */
+    public function it_throws_an_exception_when_the_file_is_incomplete()
+    {
+        $adapter = $this->adapter();
+        $path = realpath(__DIR__.'/../test-data/incomplete.xml');
+
+        $this->expectException(InvalidXmlException::class);
 
         $adapter->read($path);
     }

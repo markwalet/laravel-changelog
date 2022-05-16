@@ -64,15 +64,4 @@ class XmlFeatureAdapterTest extends LaravelTestCase
         rmdir($folderB);
         rmdir($folderA);
     }
-
-    /** @test */
-    public function it_throws_an_exception_when_the_file_is_invalid()
-    {
-        $adapter = $this->adapter();
-        $path = __DIR__.'/../test-data/invalid.xml';
-
-        $this->expectException(InvalidXmlException::class);
-
-        $adapter->read($path);
-    }
 }
