@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...master)
 
+## Changed
+- Throw an exception when the xml file is invalid.
+
 ## [v1.7.0 (2022-04-21)](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...v1.7.0)
 
 ## Added

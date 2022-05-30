@@ -5,6 +5,7 @@ namespace MarkWalet\Changelog\Commands;
 use Illuminate\Console\Command;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Release;
 
 class ChangelogListCommand extends Command
@@ -34,7 +35,13 @@ class ChangelogListCommand extends Command
         $formatter = $factory->make('text');
         $path = config('changelog.path');
 
-        $releases = $this->releases($adapter, $path);
+        try {
+            $releases = $this->releases($adapter, $path);
+        } catch(InvalidXmlException $e) {
+            $this->error('Something went wrong while parsing the xml file.');
+
+            return;
+        }
 
         $lines = explode(PHP_EOL, $formatter->multiple($releases));
 

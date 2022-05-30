@@ -4,6 +4,8 @@ namespace MarkWalet\Changelog\Commands;
 
 use Illuminate\Console\Command;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
+use MarkWalet\Changelog\Exceptions\FileNotFoundException;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\GitState\Drivers\GitDriver;
 
 class ChangelogCurrentCommand extends Command
@@ -39,9 +41,15 @@ class ChangelogCurrentCommand extends Command
             return;
         }
 
-        $feature = $adapter->read($path);
-        $this->line("Changes for $branch:");
+        try {
+            $feature = $adapter->read($path);
+        } catch(InvalidXmlException $e) {
+            $this->error('Something went wrong while parsing the xml file.');
 
+            return;
+        }
+
+        $this->line("Changes for $branch:");
         foreach ($feature->changes() as $change) {
             $type = ucfirst($change->type());
             $this->line(" - $type: {$change->message()}");

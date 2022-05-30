@@ -5,6 +5,7 @@ namespace MarkWalet\Changelog\Commands;
 use Illuminate\Console\Command;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\GitState\Drivers\GitDriver;
 
@@ -34,7 +35,13 @@ class ChangelogAddCommand extends Command
     {
         $path = $this->path($gitState);
 
-        $feature = $this->changelog($adapter, $path);
+        try {
+            $feature = $this->changelog($adapter, $path);
+        } catch(InvalidXmlException $e) {
+            $this->error('Something went wrong while parsing the xml file.');
+
+            return;
+        }
 
         $change = new Change(
             $this->getTypeArgument(),
