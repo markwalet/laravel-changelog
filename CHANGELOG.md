@@ -2,6 +2,14 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...master)
 
+### Added
+- Added support for Laravel 10
+- Added support for PHP 8.2
+
+### Removed
+- Removed support for PHP 7.4
+- Removed support for Laravel 6
+
 ## [v1.7.0 (2022-04-21)](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...v1.7.0)
 
 ## Added
