@@ -25,6 +25,8 @@ jobs:
             testbench: 6.*
           - illuminate: ^9.0
             testbench: 7.*
+          - illuminate: ^10.0
+            testbench: 8.*
         exclude:
           - php: 8.1
             illuminate: 7.*
