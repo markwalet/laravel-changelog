@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.6.1...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.8.0...master)
+
+## [v1.8.0 (2023-02-17)](https://github.com/markwalet/laravel-changelog/compare/v1.7.0...v1.8.0)
 
 ### Added
 - Added support for Laravel 10
