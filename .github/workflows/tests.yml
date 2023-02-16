@@ -17,8 +17,6 @@ jobs:
         illuminate: [ 7.*, ~8.74, ^9.0, ^10.0 ]
         stability: [ prefer-lowest, prefer-stable ]
         include:
-          - illuminate: 6.*
-            testbench: 4.*
           - illuminate: 7.*
             testbench: 5.*
           - illuminate: ~8.74
