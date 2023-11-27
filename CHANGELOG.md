@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.8.0...master)
 
+### Added
+- Added dependabot integration
+
 ## [v1.8.0 (2023-02-17)](https://github.com/markwalet/laravel-changelog/compare/v1.7.0...v1.8.0)
 
 ### Added
