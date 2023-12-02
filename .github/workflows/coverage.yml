@@ -22,12 +22,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.composer/cache/files
-          key: dependencies-php-8.2-illuminate-10.*-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-php-8.3-illuminate-10.*-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.2
+          php-version: 8.3
           extensions: dom, libxml, mbstring, zip, pcntl
           coverage: xdebug
 
