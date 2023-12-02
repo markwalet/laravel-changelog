@@ -5,6 +5,9 @@
 ### Added
 - Added dependabot integration
 
+### Fixed
+- Reduced amount of checks when creating pull requests.
+
 ## [v1.8.0 (2023-02-17)](https://github.com/markwalet/laravel-changelog/compare/v1.7.0...v1.8.0)
 
 ### Added
