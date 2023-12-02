@@ -3,6 +3,7 @@
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.8.0...master)
 
 ### Added
+- Added support for PHP 8.3.
 - Added dependabot integration
 
 ### Fixed
