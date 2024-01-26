@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cache dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.composer/cache/files
           key: dependencies-php-8.3-illuminate-10.*-composer-${{ hashFiles('composer.json') }}
