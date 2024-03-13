@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          bootstrap="vendor/autoload.php"
+         backupGlobals="false"
          colors="true"
-         verbose="true"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">./src</directory>
-        </include>
-        <exclude>
-            <directory suffix=".php">./src/Exceptions/*</directory>
-        </exclude>
-    </coverage>
-    <testsuites>
-        <testsuite name="Changelog Test Suite">
-            <directory>./tests/</directory>
-        </testsuite>
-    </testsuites>
+         processIsolation="false"
+         stopOnFailure="false"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         cacheDirectory=".phpunit.cache"
+         backupStaticProperties="false">
+  <testsuites>
+    <testsuite name="Changelog Test Suite">
+      <directory suffix="Test.php">./tests/</directory>
+    </testsuite>
+  </testsuites>
+  <source>
+    <include>
+      <directory suffix=".php">./src</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">./src/Exceptions/*</directory>
+    </exclude>
+  </source>
 </phpunit>
