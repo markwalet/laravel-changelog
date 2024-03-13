@@ -22,7 +22,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.composer/cache/files
-          key: dependencies-php-8.3-illuminate-10.*-composer-${{ hashFiles('composer.json') }}
+          key: dependencies-php-8.3-illuminate-11.*-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2

@@ -2,6 +2,18 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.9.0...master)
 
+### Added
+- Added support for Laravel 11
+
+### Removed
+- Removed support for PHP 8.0
+- Removed support for Laravel 7
+- Removed support for Laravel 8
+- Removed support for Laravel 9
+
+### Changed
+- Upgraded to PHPUnit 10.
+
 ## [v1.9.0 (2023-12-02)](https://github.com/markwalet/laravel-changelog/compare/v1.8.0...v1.9.0)
 
 ### Added
