@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        php: [ 8.1, 8.2, 8.3 ]
+        php: [ 8.1, 8.2, 8.3, 8.4 ]
         illuminate: [ ^10.0, ^11.0 ]
         stability: [ prefer-lowest, prefer-stable ]
         include:
@@ -27,18 +27,14 @@ jobs:
         exclude:
           - php: 8.1
             illuminate: ^11.0
+          - php: 8.4
+            illuminate: ^10.0
 
     name: P${{ matrix.php }} - I${{ matrix.illuminate }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Cache dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.composer/cache/files
-          key: dependencies-php-${{ matrix.php }}-illuminate-${{ matrix.illuminate }}-composer-${{ hashFiles('composer.json') }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
