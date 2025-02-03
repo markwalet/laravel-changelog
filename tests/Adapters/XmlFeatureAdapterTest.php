@@ -8,6 +8,7 @@ use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class XmlFeatureAdapterTest extends LaravelTestCase
 {
@@ -23,8 +24,8 @@ class XmlFeatureAdapterTest extends LaravelTestCase
         return new XmlFeatureAdapter;
     }
 
-    /** @test */
-    public function it_can_write_a_changelog()
+    #[Test]
+    public function it_can_write_a_changelog(): void
     {
         $adapter = $this->adapter();
         $feature = new Feature([
@@ -43,8 +44,8 @@ class XmlFeatureAdapterTest extends LaravelTestCase
         unlink($path);
     }
 
-    /** @test */
-    public function it_creates_the_directory_recursively_if_it_does_not_exist()
+    #[Test]
+    public function it_creates_the_directory_recursively_if_it_does_not_exist(): void
     {
         $adapter = $this->adapter();
         $feature = new Feature([
@@ -65,8 +66,8 @@ class XmlFeatureAdapterTest extends LaravelTestCase
         rmdir($folderA);
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_file_is_invalid()
+    #[Test]
+    public function it_throws_an_exception_when_the_file_is_invalid(): void
     {
         $adapter = $this->adapter();
         $path = __DIR__.'/../test-data/invalid.xml';

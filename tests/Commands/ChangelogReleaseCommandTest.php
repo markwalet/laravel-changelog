@@ -8,6 +8,7 @@ use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogReleaseCommandTest extends LaravelTestCase
 {
@@ -40,8 +41,8 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
         return $adapter;
     }
 
-    /** @test */
-    public function it_can_release_a_new_version()
+    #[Test]
+    public function it_can_release_a_new_version(): void
     {
         $adapter = $this->fakeAdapter();
 
@@ -60,7 +61,7 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
         $this->assertContains('unreleased', $versions);
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_an_error_when_the_release_already_exists(): void
     {
         $adapter = $this->fakeAdapter();

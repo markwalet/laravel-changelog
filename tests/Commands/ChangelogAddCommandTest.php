@@ -9,6 +9,7 @@ use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogAddCommandTest extends LaravelTestCase
 {
@@ -43,8 +44,8 @@ class ChangelogAddCommandTest extends LaravelTestCase
         return $driver;
     }
 
-    /** @test */
-    public function it_creates_a_new_changelog_when_there_is_no_changelog_yet()
+    #[Test]
+    public function it_creates_a_new_changelog_when_there_is_no_changelog_yet(): void
     {
         $this->app['config']['changelog.path'] = 'test-path';
         $adapter = $this->fakeAdapter();
@@ -65,8 +66,8 @@ class ChangelogAddCommandTest extends LaravelTestCase
         $this->assertEquals('Added a new feature.', $changes[0]->message());
     }
 
-    /** @test */
-    public function it_can_call_the_command_in_one_line()
+    #[Test]
+    public function it_can_call_the_command_in_one_line(): void
     {
         $this->app['config']['changelog.path'] = 'test-path';
         $adapter = $this->fakeAdapter();
@@ -88,8 +89,8 @@ class ChangelogAddCommandTest extends LaravelTestCase
         $this->assertEquals('Added a new feature.', $changes[0]->message());
     }
 
-    /** @test */
-    public function it_can_append_a_change_to_an_existing_changelog()
+    #[Test]
+    public function it_can_append_a_change_to_an_existing_changelog(): void
     {
         $this->app['config']['changelog.path'] = 'test-path';
         $adapter = $this->fakeAdapter();

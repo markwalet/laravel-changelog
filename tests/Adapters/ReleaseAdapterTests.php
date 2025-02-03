@@ -6,6 +6,7 @@ use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Exceptions\DirectoryNotFoundException;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 use MarkWalet\Changelog\Exceptions\VersionAlreadyExistsException;
+use PHPUnit\Framework\Attributes\Test;
 
 trait ReleaseAdapterTests
 {
@@ -21,8 +22,8 @@ trait ReleaseAdapterTests
      */
     abstract public function adapter(): ReleaseAdapter;
 
-    /** @test */
-    public function it_can_see_if_a_release_exists()
+    #[Test]
+    public function it_can_see_if_a_release_exists(): void
     {
         $adapter = $this->adapter();
 
@@ -33,8 +34,8 @@ trait ReleaseAdapterTests
         $this->assertFalse($resultB);
     }
 
-    /** @test */
-    public function it_can_read_a_release()
+    #[Test]
+    public function it_can_read_a_release(): void
     {
         $adapter = $this->adapter();
 
@@ -53,8 +54,8 @@ trait ReleaseAdapterTests
         $this->assertEquals('Removed unused trait.', $changes[3]->message());
     }
 
-    /** @test */
-    public function it_can_read_changes_of_a_nested_release()
+    #[Test]
+    public function it_can_read_changes_of_a_nested_release(): void
     {
         $adapter = $this->adapter();
 
@@ -71,8 +72,8 @@ trait ReleaseAdapterTests
         $this->assertEquals('Removed unused trait.', $changes[2]->message());
     }
 
-    /** @test */
-    public function it_can_list_all_releases()
+    #[Test]
+    public function it_can_list_all_releases(): void
     {
         $adapter = $this->adapter();
 
@@ -87,8 +88,8 @@ trait ReleaseAdapterTests
         $this->assertCount(2, $releases[2]->changes());
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_release_is_not_found()
+    #[Test]
+    public function it_throws_an_exception_when_the_release_is_not_found(): void
     {
         $this->expectException(FileNotFoundException::class);
         $adapter = $this->adapter();
@@ -96,8 +97,8 @@ trait ReleaseAdapterTests
         $adapter->read('non-existing', 'version');
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_working_directory_is_not_found()
+    #[Test]
+    public function it_throws_an_exception_when_the_working_directory_is_not_found(): void
     {
         $this->expectException(DirectoryNotFoundException::class);
         $adapter = $this->adapter();
@@ -105,8 +106,8 @@ trait ReleaseAdapterTests
         $adapter->all('non-existing');
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_version_already_exists()
+    #[Test]
+    public function it_throws_an_exception_when_the_version_already_exists(): void
     {
         $this->expectException(VersionAlreadyExistsException::class);
         $adapter = $this->adapter();

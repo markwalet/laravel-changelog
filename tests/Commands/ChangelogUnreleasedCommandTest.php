@@ -8,6 +8,7 @@ use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogUnreleasedCommandTest extends LaravelTestCase
 {
@@ -40,8 +41,8 @@ class ChangelogUnreleasedCommandTest extends LaravelTestCase
         return $adapter;
     }
 
-    /** @test */
-    public function it_can_list_all_unreleased_changes()
+    #[Test]
+    public function it_can_list_all_unreleased_changes(): void
     {
         $this->fakeAdapter();
 

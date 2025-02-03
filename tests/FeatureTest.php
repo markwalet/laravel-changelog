@@ -4,12 +4,13 @@ namespace MarkWalet\Changelog\Tests;
 
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class FeatureTest extends TestCase
 {
-    /** @test */
-    public function it_can_set_properties_trough_the_constructor()
+    #[Test]
+    public function it_can_set_properties_trough_the_constructor(): void
     {
         $feature = new Feature([
             new Change('added', 'Added a new feature.'),
@@ -25,8 +26,8 @@ class FeatureTest extends TestCase
         $this->assertEquals('Changed an existing feature.', $changes[1]->message());
     }
 
-    /** @test */
-    public function the_changes_list_defaults_to_an_empty_array()
+    #[Test]
+    public function the_changes_list_defaults_to_an_empty_array(): void
     {
         $feature = new Feature;
 
@@ -35,8 +36,8 @@ class FeatureTest extends TestCase
         $this->assertCount(0, $changes);
     }
 
-    /** @test */
-    public function it_can_add_a_change()
+    #[Test]
+    public function it_can_add_a_change(): void
     {
         $feature = new Feature([
             new Change('added', 'Added a new feature.'),
@@ -51,8 +52,8 @@ class FeatureTest extends TestCase
         $this->assertEquals('Removed something.', $changes[2]->message());
     }
 
-    /** @test */
-    public function it_can_remove_a_change()
+    #[Test]
+    public function it_can_remove_a_change(): void
     {
         $feature = new Feature([
             new Change('added', 'Added a new feature.'),

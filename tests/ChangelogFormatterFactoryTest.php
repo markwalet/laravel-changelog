@@ -7,11 +7,12 @@ use MarkWalet\Changelog\Exceptions\InvalidArgumentException;
 use MarkWalet\Changelog\Exceptions\MissingConfigurationException;
 use MarkWalet\Changelog\Formatters\ChangelogFormatter;
 use MarkWalet\Changelog\Release;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogFormatterFactoryTest extends LaravelTestCase
 {
-    /** @test */
-    public function it_can_generate_a_factory()
+    #[Test]
+    public function it_can_generate_a_factory(): void
     {
         $this->app['config']['changelog.formatters.test-driver'] = [
             'driver' => TestFormatter::class,
@@ -24,8 +25,8 @@ class ChangelogFormatterFactoryTest extends LaravelTestCase
         $this->assertInstanceOf(TestFormatter::class, $formatter);
     }
 
-    /** @test */
-    public function it_passes_through_configuration_options_to_the_formatter()
+    #[Test]
+    public function it_passes_through_configuration_options_to_the_formatter(): void
     {
         $this->app['config']['changelog.formatters.test-driver'] = [
             'driver' => TestFormatter::class,
@@ -43,8 +44,8 @@ class ChangelogFormatterFactoryTest extends LaravelTestCase
         ], $config);
     }
 
-    /** @test */
-    public function it_throws_an_exception_if_the_format_configuration_does_not_exist()
+    #[Test]
+    public function it_throws_an_exception_if_the_format_configuration_does_not_exist(): void
     {
         /** @var ChangelogFormatterFactory $factory */
         $factory = $this->app->make(ChangelogFormatterFactory::class);
@@ -53,8 +54,8 @@ class ChangelogFormatterFactoryTest extends LaravelTestCase
         $factory->make('non-existing');
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_driver_is_not_set_in_a_configuration()
+    #[Test]
+    public function it_throws_an_exception_when_the_driver_is_not_set_in_a_configuration(): void
     {
         $this->app['config']['changelog.formatters.missing-driver'] = [
             'other-option' => 'value',
@@ -66,8 +67,8 @@ class ChangelogFormatterFactoryTest extends LaravelTestCase
         $factory->make('missing-driver');
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_the_driver_does_not_extends_the_base_formatter_class()
+    #[Test]
+    public function it_throws_an_exception_when_the_driver_does_not_extends_the_base_formatter_class(): void
     {
         $this->app['config']['changelog.formatters.invalid-driver'] = [
             'driver' => InvalidFormatter::class,

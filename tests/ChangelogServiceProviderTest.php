@@ -7,19 +7,20 @@ use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Adapters\XmlFeatureAdapter;
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogServiceProviderTest extends LaravelTestCase
 {
-    /** @test */
-    public function it_registers_a_default_configuration()
+    #[Test]
+    public function it_registers_a_default_configuration(): void
     {
         $config = $this->app['config']->get('changelog');
 
         $this->assertIsArray($config);
     }
 
-    /** @test */
-    public function it_registers_a_default_changelog_adapter()
+    #[Test]
+    public function it_registers_a_default_changelog_adapter(): void
     {
         $bindings = $this->app->getBindings();
         $this->assertArrayHasKey(FeatureAdapter::class, $bindings);
@@ -28,8 +29,8 @@ class ChangelogServiceProviderTest extends LaravelTestCase
         $this->assertInstanceOf(XmlFeatureAdapter::class, $adapter);
     }
 
-    /** @test */
-    public function it_registers_a_default_release_adapter()
+    #[Test]
+    public function it_registers_a_default_release_adapter(): void
     {
         $bindings = $this->app->getBindings();
         $this->assertArrayHasKey(ReleaseAdapter::class, $bindings);
@@ -38,8 +39,8 @@ class ChangelogServiceProviderTest extends LaravelTestCase
         $this->assertInstanceOf(XmlReleaseAdapter::class, $adapter);
     }
 
-    /** @test */
-    public function it_registers_a_formatter_factory()
+    #[Test]
+    public function it_registers_a_formatter_factory(): void
     {
         $bindings = $this->app->getBindings();
         $this->assertArrayHasKey(ChangelogFormatterFactory::class, $bindings);

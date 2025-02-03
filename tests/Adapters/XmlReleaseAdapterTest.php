@@ -4,6 +4,7 @@ namespace MarkWalet\Changelog\Tests\Adapters;
 
 use MarkWalet\Changelog\Adapters\XmlReleaseAdapter;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class XmlReleaseAdapterTest extends LaravelTestCase
 {
@@ -19,8 +20,8 @@ class XmlReleaseAdapterTest extends LaravelTestCase
         return new XmlReleaseAdapter();
     }
 
-    /** @test */
-    public function it_can_execute_a_release()
+    #[Test]
+    public function it_can_execute_a_release(): void
     {
         $adapter = $this->adapter();
         $path = __DIR__.'/../test-data/release-write-test';

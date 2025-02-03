@@ -3,12 +3,13 @@
 namespace MarkWalet\Changelog\Tests\Concerns;
 
 use MarkWalet\Changelog\Concerns\CanSortReleases;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class CanSortVersionsTest extends TestCase
 {
-    /** @test */
-    public function it_can_sort_versions_alphabetically()
+    #[Test]
+    public function it_can_sort_versions_alphabetically(): void
     {
         $instance = new SortableReleasesTestClass;
 
@@ -17,8 +18,8 @@ class CanSortVersionsTest extends TestCase
         $this->assertEquals(['CCC', 'BBB', 'AAA'], $sorted);
     }
 
-    /** @test */
-    public function it_can_sort_versions_on_version_number()
+    #[Test]
+    public function it_can_sort_versions_on_version_number(): void
     {
         $instance = new SortableReleasesTestClass;
 
@@ -27,8 +28,8 @@ class CanSortVersionsTest extends TestCase
         $this->assertEquals(['v1.0.10', 'v1.0.4', 'v1.0.2'], $sorted);
     }
 
-    /** @test */
-    public function it_always_sorts_an_unreleased_version_first()
+    #[Test]
+    public function it_always_sorts_an_unreleased_version_first(): void
     {
         $instance = new SortableReleasesTestClass;
 

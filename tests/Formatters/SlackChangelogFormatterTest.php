@@ -1,17 +1,18 @@
 <?php
 
-namespace MarkWalet\Changelog\Tests;
+namespace MarkWalet\Changelog\Tests\Formatters;
 
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Formatters\SlackChangelogFormatter;
 use MarkWalet\Changelog\Release;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class SlackChangelogFormatterTest extends TestCase
 {
-    /** @test */
-    public function it_can_format_a_single_release()
+    #[Test]
+    public function it_can_format_a_single_release(): void
     {
         $release = new Release('unreleased');
         $release->add(new Feature([
@@ -31,8 +32,8 @@ class SlackChangelogFormatterTest extends TestCase
             .'\\n* - Removed:* Removed unused trait.', $result);
     }
 
-    /** @test */
-    public function it_can_format_all_releases()
+    #[Test]
+    public function it_can_format_all_releases(): void
     {
         $releaseA = new Release('unreleased');
         $releaseB = new Release('v1.0.1');
@@ -56,8 +57,8 @@ class SlackChangelogFormatterTest extends TestCase
             .'\\n* - Changed:* Renamed methods in the adapter interfaces.', $result);
     }
 
-    /** @test */
-    public function it_can_optionally_capitalize_the_version()
+    #[Test]
+    public function it_can_optionally_capitalize_the_version(): void
     {
         $release = new Release('v1.0.1');
         $defaultFormatter = new SlackChangelogFormatter;
