@@ -8,6 +8,7 @@ use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 use MarkWalet\GitState\Drivers\GitDriver;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogCurrentCommandTest extends LaravelTestCase
 {
@@ -26,8 +27,8 @@ class ChangelogCurrentCommandTest extends LaravelTestCase
         });
     }
 
-    /** @test */
-    public function it_can_list_all_changes_for_all_releases()
+    #[Test]
+    public function it_can_list_all_changes_for_all_releases(): void
     {
         $this->mock(FeatureAdapter::class, function (MockInterface $adapter) {
             $adapter->allows('exists')->andReturnUsing(function (string $branch) {
@@ -46,7 +47,7 @@ class ChangelogCurrentCommandTest extends LaravelTestCase
             ->expectsOutput(' - Fixed: Fixed a bug.');
     }
 
-    /** @test */
+    #[Test]
     public function it_shows_a_warning_when_there_are_no_unreleased_changes_found_yet(): void
     {
         config()->set('changelog.path', 'fake-path');

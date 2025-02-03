@@ -8,6 +8,7 @@ use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogGenerateCommandTest extends LaravelTestCase
 {
@@ -40,8 +41,8 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
         return $adapter;
     }
 
-    /** @test */
-    public function it_can_generate_a_changelog_file()
+    #[Test]
+    public function it_can_generate_a_changelog_file(): void
     {
         $path = __DIR__.'/../test-data/CHANGELOG-CUSTOM.md';
         $this->fakeAdapter();
@@ -55,8 +56,8 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
         unlink($path);
     }
 
-    /** @test */
-    public function it_gets_the_default_path_from_the_configuration()
+    #[Test]
+    public function it_gets_the_default_path_from_the_configuration(): void
     {
         $this->fakeAdapter();
         $path = __DIR__.'/../test-data/CHANGELOG-CUSTOM.md';
@@ -70,8 +71,8 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
         unlink($path);
     }
 
-    /** @test */
-    public function it_does_not_create_a_file_on_a_dry_run()
+    #[Test]
+    public function it_does_not_create_a_file_on_a_dry_run(): void
     {
         $this->fakeAdapter();
         $path = __DIR__.'/../test-data/CHANGELOG.md';

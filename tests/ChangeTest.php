@@ -3,12 +3,13 @@
 namespace MarkWalet\Changelog\Tests;
 
 use MarkWalet\Changelog\Change;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ChangeTest extends TestCase
 {
-    /** @test */
-    public function it_can_set_properties_trough_the_constructor()
+    #[Test]
+    public function it_can_set_properties_trough_the_constructor(): void
     {
         $change = new Change('added', 'Added a new feature');
 
@@ -19,8 +20,8 @@ class ChangeTest extends TestCase
         $this->assertEquals('Added a new feature', $message);
     }
 
-    /** @test */
-    public function change_type_is_converted_to_lowercase()
+    #[Test]
+    public function change_type_is_converted_to_lowercase(): void
     {
         $changeA = new Change('Ucfirst', '');
         $changeB = new Change('UPPERCASE', '');

@@ -7,6 +7,7 @@ use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class FakeFeatureAdapterTest extends LaravelTestCase
 {
@@ -31,8 +32,8 @@ class FakeFeatureAdapterTest extends LaravelTestCase
         return $adapter;
     }
 
-    /** @test */
-    public function it_can_write_a_changelog()
+    #[Test]
+    public function it_can_write_a_changelog(): void
     {
         $adapter = $this->adapter();
         $feature = new Feature([

@@ -5,12 +5,13 @@ namespace MarkWalet\Changelog\Tests;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
+use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
 class ReleaseTest extends TestCase
 {
-    /** @test */
-    public function it_can_set_properties_trough_the_constructor()
+    #[Test]
+    public function it_can_set_properties_trough_the_constructor(): void
     {
         $change = new Release('v1.0.2');
 
@@ -19,8 +20,8 @@ class ReleaseTest extends TestCase
         $this->assertEquals('v1.0.2', $version);
     }
 
-    /** @test */
-    public function it_appends_all_changes_of_a_changelog_to_the_release()
+    #[Test]
+    public function it_appends_all_changes_of_a_changelog_to_the_release(): void
     {
         $release = new Release('v1');
         $release->add(new Feature([
@@ -37,8 +38,8 @@ class ReleaseTest extends TestCase
         $this->assertCount(4, $changes);
     }
 
-    /** @test */
-    public function it_sorts_all_changes_on_type()
+    #[Test]
+    public function it_sorts_all_changes_on_type(): void
     {
         $release = new Release('v1');
         $release->add(new Feature([
@@ -58,8 +59,8 @@ class ReleaseTest extends TestCase
         $this->assertEquals('ddd', $changes[3]->type());
     }
 
-    /** @test */
-    public function it_sorts_all_changes_on_message()
+    #[Test]
+    public function it_sorts_all_changes_on_message(): void
     {
         $release = new Release('v1');
         $release->add(new Feature([
@@ -79,8 +80,8 @@ class ReleaseTest extends TestCase
         $this->assertEquals('ddd', $changes[3]->message());
     }
 
-    /** @test */
-    public function it_prioritizes_sorting_on_type()
+    #[Test]
+    public function it_prioritizes_sorting_on_type(): void
     {
         $release = new Release('v1');
         $release->add(new Feature([

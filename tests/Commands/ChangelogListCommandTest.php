@@ -8,6 +8,7 @@ use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogListCommandTest extends LaravelTestCase
 {
@@ -40,8 +41,8 @@ class ChangelogListCommandTest extends LaravelTestCase
         return $adapter;
     }
 
-    /** @test */
-    public function it_can_list_all_changes_for_all_releases()
+    #[Test]
+    public function it_can_list_all_changes_for_all_releases(): void
     {
         $this->fakeAdapter();
 

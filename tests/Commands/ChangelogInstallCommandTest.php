@@ -4,11 +4,12 @@ namespace MarkWalet\Changelog\Tests\Commands;
 
 use Illuminate\Support\Facades\File;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogInstallCommandTest extends LaravelTestCase
 {
-    /** @test */
-    public function it_creates_a_gitkeep_file_in_the_configured_folder_once()
+    #[Test]
+    public function it_creates_a_gitkeep_file_in_the_configured_folder_once(): void
     {
         $this->app['config']['changelog.path'] = __DIR__.'/.changes';
 

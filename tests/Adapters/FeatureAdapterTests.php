@@ -4,6 +4,7 @@ namespace MarkWalet\Changelog\Tests\Adapters;
 
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
+use PHPUnit\Framework\Attributes\Test;
 
 trait FeatureAdapterTests
 {
@@ -16,8 +17,8 @@ trait FeatureAdapterTests
      */
     abstract public function adapter(): FeatureAdapter;
 
-    /** @test */
-    public function it_can_see_if_a_changelog_exists()
+    #[Test]
+    public function it_can_see_if_a_changelog_exists(): void
     {
         $adapter = $this->adapter();
 
@@ -28,8 +29,8 @@ trait FeatureAdapterTests
         $this->assertFalse($resultB);
     }
 
-    /** @test */
-    public function it_can_read_a_changelog()
+    #[Test]
+    public function it_can_read_a_changelog(): void
     {
         $adapter = $this->adapter();
 
@@ -47,8 +48,8 @@ trait FeatureAdapterTests
         $this->assertEquals('Removed a deprecated function.', $changes[3]->message());
     }
 
-    /** @test */
-    public function it_throws_an_exception_when_it_tries_to_read_a_non_existing_file()
+    #[Test]
+    public function it_throws_an_exception_when_it_tries_to_read_a_non_existing_file(): void
     {
         $adapter = $this->adapter();
         $path = __DIR__.'/../test-data/not-existing.xml';
