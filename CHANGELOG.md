@@ -3,6 +3,7 @@
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.10.0...master)
 
 ### Added
+- Support Laravel 12
 - Included PHP 8.4 in test matrix
 
 ## [v1.10.0 (2024-03-13)](https://github.com/markwalet/laravel-changelog/compare/v1.9.0...v1.10.0)
