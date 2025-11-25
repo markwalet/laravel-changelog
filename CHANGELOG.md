@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.11.0...master)
 
+### Changed
+- Increase minimum Laravel version to 11.44.2.
+
 ## [v1.11.0 (2025-02-03)](https://github.com/markwalet/laravel-changelog/compare/v1.10.0...v1.11.0)
 
 ### Added
