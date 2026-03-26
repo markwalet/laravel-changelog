@@ -2,8 +2,13 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.11.0...master)
 
+### Added
+- Support Laravel 13.
+
 ### Changed
 - Increase minimum Laravel version to 11.44.2.
+- Added Laravel 13 to the test matrix.
+- Updated coverage tests to install the Laravel 13 / Testbench 11 stack explicitly.
 
 ## [v1.11.0 (2025-02-03)](https://github.com/markwalet/laravel-changelog/compare/v1.10.0...v1.11.0)
 
