@@ -51,3 +51,18 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/phpunit
+
+  tests-required:
+    name: Tests Required
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs:
+      - tests
+
+    steps:
+      - name: Verify test matrix completed successfully
+        run: |
+          if [ "${{ needs.tests.result }}" != "success" ]; then
+            echo "Test matrix result: ${{ needs.tests.result }}"
+            exit 1
+          fi
