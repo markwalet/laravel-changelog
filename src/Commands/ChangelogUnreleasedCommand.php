@@ -5,10 +5,14 @@ namespace MarkWalet\Changelog\Commands;
 use Illuminate\Console\Command;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
+use MarkWalet\Changelog\Commands\Concerns\WarnsAboutInvalidXml;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Release;
 
 class ChangelogUnreleasedCommand extends Command
 {
+    use WarnsAboutInvalidXml;
+
     /**
      * The name and signature of the console command.
      *
@@ -34,7 +38,11 @@ class ChangelogUnreleasedCommand extends Command
         $formatter = $factory->make('text');
         $path = config('changelog.path');
 
-        $release = $this->release($adapter, $path);
+        try {
+            $release = $this->release($adapter, $path);
+        } catch (InvalidXmlException $exception) {
+            return $this->warnAboutInvalidXml($exception);
+        }
 
         $lines = explode(PHP_EOL, $formatter->single($release));
 

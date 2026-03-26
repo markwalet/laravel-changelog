@@ -6,11 +6,15 @@ use Illuminate\Console\Command;
 use Illuminate\Contracts\View\Factory as ViewFactory;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
+use MarkWalet\Changelog\Commands\Concerns\WarnsAboutInvalidXml;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Release;
 use Throwable;
 
 class ChangelogGenerateCommand extends Command
 {
+    use WarnsAboutInvalidXml;
+
     /**
      * The name and signature of the console command.
      *
@@ -38,7 +42,11 @@ class ChangelogGenerateCommand extends Command
         $readPath = $this->readPath();
         $writePath = $this->writePath();
 
-        $releases = $this->releases($adapter, $readPath);
+        try {
+            $releases = $this->releases($adapter, $readPath);
+        } catch (InvalidXmlException $exception) {
+            return $this->warnAboutInvalidXml($exception);
+        }
 
         $formatted = $formatter->multiple($releases);
         $content = $this->view($formatted);

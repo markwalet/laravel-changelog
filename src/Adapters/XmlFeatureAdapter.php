@@ -39,14 +39,33 @@ class XmlFeatureAdapter implements FeatureAdapter
             throw new FileNotFoundException($path);
         }
 
+        $previousValue = libxml_use_internal_errors(true);
         $element = simplexml_load_string($content);
+        if ($element === false) {
+            $error = collect(libxml_get_errors())
+                ->map(fn (\LibXMLError $error) => trim($error->message))
+                ->filter()
+                ->implode(', ');
+
+            libxml_clear_errors();
+            libxml_use_internal_errors($previousValue);
+
+            $message = "Invalid xml in \"$path\".";
+            if ($error !== '') {
+                $message = "Invalid xml in \"$path\": $error";
+            }
+
+            throw new InvalidXmlException($message);
+        }
+        libxml_clear_errors();
+        libxml_use_internal_errors($previousValue);
 
         $feature = new Feature;
 
         foreach ($element->children() as $change) {
             $type = $change->attributes()['type'];
             if (is_null($type)) {
-                throw new InvalidXmlException('Missing `type` attribute on change element.');
+                throw new InvalidXmlException("Invalid xml in \"$path\": Missing `type` attribute on change element.");
             }
             $message = (string) $change;
 

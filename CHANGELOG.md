@@ -14,6 +14,9 @@
 - Re-enable the fake release adapter test coverage for release execution.
 - Fix type annotations and formatting issues required by the new static analysis checks.
 
+### Fixed
+- Catch invalid XML parsing errors in commands and show a warning instead of throwing an exception.
+
 ### Removed
 - Removed support for Laravel 10.
 - Removed support for Laravel 11.

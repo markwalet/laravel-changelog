@@ -5,9 +5,11 @@ namespace MarkWalet\Changelog\Tests\Commands;
 use MarkWalet\Changelog\Adapters\FakeReleaseAdapter;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Change;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogGenerateCommandTest extends LaravelTestCase
@@ -80,6 +82,23 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
             '--dry-run' => true,
             '--path' => $path,
         ])->assertExitCode(0);
+
+        $this->assertFalse(file_exists($path));
+    }
+
+    #[Test]
+    public function it_shows_a_warning_when_a_release_contains_invalid_xml(): void
+    {
+        $path = __DIR__.'/../test-data/CHANGELOG-CUSTOM.md';
+        $this->app['config']['changelog.path'] = 'fake-folder';
+        $this->mock(ReleaseAdapter::class, function (MockInterface $adapter) {
+            $adapter->allows('all')->andThrow(new InvalidXmlException('Invalid xml in "fake-folder/unreleased/example.xml".'));
+        });
+
+        $this->artisan('changelog:generate', [
+            '--path' => $path,
+        ])->expectsOutput('Invalid xml in "fake-folder/unreleased/example.xml".')
+            ->assertExitCode(1);
 
         $this->assertFalse(file_exists($path));
     }

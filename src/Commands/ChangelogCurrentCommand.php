@@ -4,10 +4,14 @@ namespace MarkWalet\Changelog\Commands;
 
 use Illuminate\Console\Command;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
+use MarkWalet\Changelog\Commands\Concerns\WarnsAboutInvalidXml;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\GitState\Drivers\GitDriver;
 
 class ChangelogCurrentCommand extends Command
 {
+    use WarnsAboutInvalidXml;
+
     /**
      * The name and signature of the console command.
      *
@@ -39,7 +43,12 @@ class ChangelogCurrentCommand extends Command
             return self::FAILURE;
         }
 
-        $feature = $adapter->read($path);
+        try {
+            $feature = $adapter->read($path);
+        } catch (InvalidXmlException $exception) {
+            return $this->warnAboutInvalidXml($exception);
+        }
+
         $this->line("Changes for $branch:");
 
         foreach ($feature->changes() as $change) {
