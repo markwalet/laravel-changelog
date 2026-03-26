@@ -26,7 +26,9 @@ jobs:
           coverage: xdebug
 
       - name: Install dependencies
-        run: composer update --prefer-dist --no-interaction
+        run: |
+          composer require "laravel/framework:^13.0" "orchestra/testbench:11.*" --no-interaction --no-update
+          composer update --prefer-dist --no-interaction
 
       - name: Calculate coverage statistics
         run: vendor/bin/phpunit --coverage-clover 'clover.xml'
