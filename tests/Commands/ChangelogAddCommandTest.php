@@ -53,7 +53,8 @@ class ChangelogAddCommandTest extends LaravelTestCase
 
         $this->artisan('changelog:add')
             ->expectsQuestion('type', 'added')
-            ->expectsQuestion('message', 'Added a new feature.');
+            ->expectsQuestion('message', 'Added a new feature.')
+            ->assertExitCode(0);
 
         $exists = $adapter->exists('test-path/unreleased/test-branch.xml');
         $this->assertTrue($exists);
@@ -76,7 +77,7 @@ class ChangelogAddCommandTest extends LaravelTestCase
         $this->artisan('changelog:add', [
             '--type' => 'added',
             '--message' => 'Added a new feature.',
-        ]);
+        ])->assertExitCode(0);
 
         $exists = $adapter->exists('test-path/unreleased/test-branch.xml');
         $this->assertTrue($exists);
@@ -103,7 +104,7 @@ class ChangelogAddCommandTest extends LaravelTestCase
         $this->artisan('changelog:add', [
             '--type' => 'changed',
             '--message' => 'Changed an existing feature.',
-        ]);
+        ])->assertExitCode(0);
 
         $exists = $adapter->exists('test-path/unreleased/test-branch.xml');
         $this->assertTrue($exists);

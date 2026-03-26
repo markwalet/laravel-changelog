@@ -49,6 +49,7 @@ class ChangelogUnreleasedCommandTest extends LaravelTestCase
         $this->artisan('changelog:unreleased')
             ->expectsOutput('Unreleased')
             ->expectsOutput('  - Added: Added a new feature.')
-            ->expectsOutput('  - Removed: Removed unused trait.');
+            ->expectsOutput('  - Removed: Removed unused trait.')
+            ->assertExitCode(0);
     }
 }

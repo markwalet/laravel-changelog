@@ -50,7 +50,7 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
         $this->assertFalse(file_exists($path));
         $this->artisan('changelog:generate', [
             '--path' => $path,
-        ]);
+        ])->assertExitCode(0);
         $this->assertTrue(file_exists($path));
 
         unlink($path);
@@ -65,7 +65,7 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
         $this->app['config']['changelog.changelog_path'] = $path;
 
         $this->assertFalse(file_exists($path));
-        $this->artisan('changelog:generate');
+        $this->artisan('changelog:generate')->assertExitCode(0);
         $this->assertTrue(file_exists($path));
 
         unlink($path);
@@ -79,7 +79,7 @@ class ChangelogGenerateCommandTest extends LaravelTestCase
         $this->artisan('changelog:generate', [
             '--dry-run' => true,
             '--path' => $path,
-        ]);
+        ])->assertExitCode(0);
 
         $this->assertFalse(file_exists($path));
     }

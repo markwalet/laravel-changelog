@@ -52,6 +52,7 @@ class ChangelogListCommandTest extends LaravelTestCase
             ->expectsOutput('V1.0.1')
             ->expectsOutput('  - Added: Added a third feature.')
             ->expectsOutput('  - Added: Added helper commands.')
-            ->expectsOutput('  - Removed: Removed unused trait.');
+            ->expectsOutput('  - Removed: Removed unused trait.')
+            ->assertExitCode(0);
     }
 }

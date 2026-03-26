@@ -27,7 +27,7 @@ class ChangelogReleaseCommand extends Command
      *
      * @param ReleaseAdapter $adapter
      */
-    public function handle(ReleaseAdapter $adapter)
+    public function handle(ReleaseAdapter $adapter): int
     {
         $path = config('changelog.path');
         $version = $this->argument('version');
@@ -36,6 +36,10 @@ class ChangelogReleaseCommand extends Command
             $adapter->release($path, $version);
         } catch (VersionAlreadyExistsException $e) {
             $this->error("Version {$e->getVersion()} already exists.");
+
+            return self::FAILURE;
         }
+
+        return self::SUCCESS;
     }
 }

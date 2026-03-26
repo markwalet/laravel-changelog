@@ -31,7 +31,7 @@ class ChangelogGenerateCommand extends Command
      * @param ChangelogFormatterFactory $factory
      * @throws Throwable
      */
-    public function handle(ReleaseAdapter $adapter, ChangelogFormatterFactory $factory)
+    public function handle(ReleaseAdapter $adapter, ChangelogFormatterFactory $factory): int
     {
         $formatter = $factory->make('markdown');
         $readPath = $this->readPath();
@@ -45,11 +45,13 @@ class ChangelogGenerateCommand extends Command
         if ($this->option('dry-run')) {
             $this->line($content);
 
-            return;
+            return self::SUCCESS;
         }
 
         file_put_contents($writePath, $content);
         $this->info("The changelog is written to: $writePath");
+
+        return self::SUCCESS;
     }
 
     /**

@@ -30,7 +30,7 @@ class ChangelogAddCommand extends Command
      * @param GitDriver $gitState
      * @param FeatureAdapter $adapter
      */
-    public function handle(GitDriver $gitState, FeatureAdapter $adapter)
+    public function handle(GitDriver $gitState, FeatureAdapter $adapter): int
     {
         $path = $this->path($gitState);
 
@@ -46,6 +46,8 @@ class ChangelogAddCommand extends Command
         $this->write($adapter, $path, $feature);
 
         $this->info('Wrote a new change to the feature file.');
+
+        return self::SUCCESS;
     }
 
     /**

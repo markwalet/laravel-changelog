@@ -28,7 +28,7 @@ class ChangelogCurrentCommand extends Command
      * @param FeatureAdapter $adapter
      * @param GitDriver $gitState
      */
-    public function handle(FeatureAdapter $adapter, GitDriver $gitState)
+    public function handle(FeatureAdapter $adapter, GitDriver $gitState): int
     {
         $branch = $gitState->currentBranch();
         $path = config('changelog.path').DIRECTORY_SEPARATOR.'unreleased'.DIRECTORY_SEPARATOR.$branch.'.xml';
@@ -36,7 +36,7 @@ class ChangelogCurrentCommand extends Command
         if (! $adapter->exists($path)) {
             $this->warn("No changes found for $branch");
 
-            return;
+            return self::FAILURE;
         }
 
         $feature = $adapter->read($path);
@@ -46,5 +46,7 @@ class ChangelogCurrentCommand extends Command
             $type = ucfirst($change->type());
             $this->line(" - $type: {$change->message()}");
         }
+
+        return self::SUCCESS;
     }
 }

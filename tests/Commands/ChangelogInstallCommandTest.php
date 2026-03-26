@@ -13,11 +13,11 @@ class ChangelogInstallCommandTest extends LaravelTestCase
     {
         $this->app['config']['changelog.path'] = __DIR__.'/.changes';
 
-        $this->artisan('changelog:install');
+        $this->artisan('changelog:install')->assertExitCode(0);
 
         $this->assertFileExists(__DIR__.'/.changes/unreleased/.gitkeep');
 
-        $this->artisan('changelog:install');
+        $this->artisan('changelog:install')->assertExitCode(1);
 
         $this->assertFileExists(__DIR__.'/.changes/unreleased/.gitkeep');
 
