@@ -48,7 +48,7 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
 
         $this->artisan('changelog:release', [
             'version' => 'v1.0.2',
-        ]);
+        ])->assertExitCode(0);
 
         $releases = $adapter->all('fake-folder');
         $versions = collect($releases)->map(function (Release $release) {
@@ -68,7 +68,8 @@ class ChangelogReleaseCommandTest extends LaravelTestCase
 
         $this->artisan('changelog:release', [
             'version' => 'v1.0.1',
-        ])->expectsOutput('Version v1.0.1 already exists.');
+        ])->expectsOutput('Version v1.0.1 already exists.')
+            ->assertExitCode(1);
 
         $releases = $adapter->all('fake-folder');
         $versions = collect($releases)->map(function (Release $release) {

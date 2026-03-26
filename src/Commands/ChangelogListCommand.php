@@ -29,7 +29,7 @@ class ChangelogListCommand extends Command
      * @param ReleaseAdapter $adapter
      * @param ChangelogFormatterFactory $factory
      */
-    public function handle(ReleaseAdapter $adapter, ChangelogFormatterFactory $factory)
+    public function handle(ReleaseAdapter $adapter, ChangelogFormatterFactory $factory): int
     {
         $formatter = $factory->make('text');
         $path = config('changelog.path');
@@ -41,6 +41,8 @@ class ChangelogListCommand extends Command
         foreach ($lines as $line) {
             $this->line($line);
         }
+
+        return self::SUCCESS;
     }
 
     /**

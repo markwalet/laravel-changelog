@@ -44,7 +44,8 @@ class ChangelogCurrentCommandTest extends LaravelTestCase
         $this->artisan('changelog:current')
             ->expectsOutput('Changes for test-branch:')
             ->expectsOutput(' - Added: Added a new feature.')
-            ->expectsOutput(' - Fixed: Fixed a bug.');
+            ->expectsOutput(' - Fixed: Fixed a bug.')
+            ->assertExitCode(0);
     }
 
     #[Test]
@@ -56,6 +57,7 @@ class ChangelogCurrentCommandTest extends LaravelTestCase
         });
 
         $this->artisan('changelog:current')
-            ->expectsOutput('No changes found for test-branch');
+            ->expectsOutput('No changes found for test-branch')
+            ->assertExitCode(1);
     }
 }

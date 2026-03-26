@@ -24,20 +24,22 @@ class ChangelogInstallCommand extends Command
     /**
      * Execute the command.
      */
-    public function handle()
+    public function handle(): int
     {
         $path = $this->folder().DIRECTORY_SEPARATOR.'.gitkeep';
 
         if (File::exists($path)) {
             $this->warn('.gitkeep file already exists.');
 
-            return;
+            return self::FAILURE;
         }
 
         File::makeDirectory($this->folder(), 0755, true);
         File::put($this->folder().DIRECTORY_SEPARATOR.'.gitkeep', '');
 
         $this->info("Created $path");
+
+        return self::SUCCESS;
     }
 
     /**
