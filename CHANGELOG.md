@@ -1,6 +1,8 @@
 # Release Notes
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.11.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.12.0...master)
+
+## [v1.12.0 (2026-03-26)](https://github.com/markwalet/laravel-changelog/compare/v1.11.0...v1.12.0)
 
 ### Added
 - Support Laravel 13.
