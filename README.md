@@ -18,7 +18,7 @@ You can install this package with composer:
 composer require markwalet/laravel-changelog
 ```
 
-The package supports PHP 8.x and Laravel 10+, with Laravel 11 support starting at 11.44.2.
+The package supports PHP 8.2+ and Laravel 12+.
 
 Laravel uses package auto-discovery, so you don't have to register the service provider. If you want to register the service provider manually, add the following line to your `config/app.php` file:
 
