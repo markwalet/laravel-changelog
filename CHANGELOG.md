@@ -6,9 +6,14 @@
 - Support Laravel 13.
 
 ### Changed
-- Increase minimum Laravel version to 11.44.2.
+- Increase minimum PHP version to 8.2.
+- Increase minimum Laravel version to 12.
 - Added Laravel 13 to the test matrix.
 - Updated coverage tests to install the Laravel 13 / Testbench 11 stack explicitly.
+
+### Removed
+- Removed support for Laravel 10.
+- Removed support for Laravel 11.
 
 ## [v1.11.0 (2025-02-03)](https://github.com/markwalet/laravel-changelog/compare/v1.10.0...v1.11.0)
 
