@@ -5,6 +5,7 @@
 ### Changed
 - Increase minimum PHP version to 8.2.
 - Increase minimum Laravel version to 12.
+- Commands now return explicit integer success and failure status codes.
 
 ### Removed
 - Removed support for Laravel 10.
