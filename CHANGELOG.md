@@ -2,19 +2,22 @@
 
 ## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.12.0...master)
 
+### Changed
+- Increase minimum PHP version to 8.2.
+- Increase minimum Laravel version to 12.
+
+### Removed
+- Removed support for Laravel 10.
+- Removed support for Laravel 11.
+
 ## [v1.12.0 (2026-03-26)](https://github.com/markwalet/laravel-changelog/compare/v1.11.0...v1.12.0)
 
 ### Added
 - Support Laravel 13.
 
 ### Changed
-- Increase minimum PHP version to 8.2.
-- Increase minimum Laravel version to 12.
+- Increase minimum Laravel version to 11.44.2.
 - Added Laravel 13 to the test matrix.
-
-### Removed
-- Removed support for Laravel 10.
-- Removed support for Laravel 11.
 
 ## [v1.11.0 (2025-02-03)](https://github.com/markwalet/laravel-changelog/compare/v1.10.0...v1.11.0)
 
