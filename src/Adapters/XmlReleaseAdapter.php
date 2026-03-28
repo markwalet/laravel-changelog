@@ -69,15 +69,11 @@ class XmlReleaseAdapter implements ReleaseAdapter
         $old = $path.DIRECTORY_SEPARATOR.'unreleased';
         $new = $path.DIRECTORY_SEPARATOR.$version;
 
-        File::makeDirectory($new);
-        collect(File::glob($old.DIRECTORY_SEPARATOR.'**'))
-            ->map(fn (string $path) => substr($path, strlen($old)))
-            ->each(function (string $file) use ($old, $new) {
-                $source = $old.$file;
-                $target = $new.$file;
+        File::moveDirectory($old, $new);
+        File::delete($new.DIRECTORY_SEPARATOR.'.gitkeep');
 
-                File::move($source, $target);
-            });
+        File::makeDirectory($old, 0755, true);
+        File::put($old.DIRECTORY_SEPARATOR.'.gitkeep', '');
     }
 
     /**

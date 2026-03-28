@@ -55,6 +55,12 @@ class FakeReleaseAdapterTest extends LaravelTestCase
                 new Change('removed', 'Removed unused trait.'),
             ]));
         }));
+        $adapter->addRelease(__DIR__.'/../test-data/release-write-test', 'unreleased', tap(new Release('unreleased'), function (Release $release) {
+            $release->add(new Feature([
+                new Change('added', 'Added a feature.'),
+                new Change('changed', 'Renamed methods in the adapter interfaces.'),
+            ]));
+        }));
 
         return $adapter;
     }
@@ -62,7 +68,6 @@ class FakeReleaseAdapterTest extends LaravelTestCase
     #[Test]
     public function it_can_execute_a_release(): void
     {
-        $this->markTestSkipped();
         $adapter = $this->adapter();
         $path = __DIR__.'/../test-data/release-write-test';
 
@@ -76,8 +81,7 @@ class FakeReleaseAdapterTest extends LaravelTestCase
         $this->assertFalse($versionBefore);
         $this->assertTrue($unreleasedAfter);
         $this->assertTrue($versionAfter);
-
-        rmdir(__DIR__.'/../test-data/release-write-test/unreleased');
-        rename(__DIR__.'/../test-data/release-write-test/unreleased', __DIR__.'/../test-data/release-write-test/unreleased');
+        $this->assertCount(0, $adapter->read($path, 'unreleased')->changes());
+        $this->assertCount(2, $adapter->read($path, 'v1.0.2')->changes());
     }
 }
