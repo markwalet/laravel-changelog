@@ -13,7 +13,7 @@ class FakeReleaseAdapter implements ReleaseAdapter
     use CanSortReleases;
 
     /**
-     * @var Release[][]|array
+     * @var array<string, array<string, Release>>
      */
     private array $releases = [];
 
@@ -24,7 +24,7 @@ class FakeReleaseAdapter implements ReleaseAdapter
      * @param string $version
      * @param Release $release
      */
-    public function addRelease(string $path, string $version, Release $release)
+    public function addRelease(string $path, string $version, Release $release): void
     {
         if (array_key_exists($path, $this->releases) === false) {
             $this->releases[$path] = [];

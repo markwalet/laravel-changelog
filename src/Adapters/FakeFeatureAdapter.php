@@ -2,19 +2,18 @@
 
 namespace MarkWalet\Changelog\Adapters;
 
-use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 use MarkWalet\Changelog\Feature;
 
 class FakeFeatureAdapter implements FeatureAdapter
 {
     /**
-     * @var Change[]|array
+     * @var array<string, Feature>
      */
     private array $changes = [];
 
     /**
-     * Set a lis of changes for the given path.
+     * Set a list of changes for the given path.
      *
      * @param string $path
      * @param Feature $changes

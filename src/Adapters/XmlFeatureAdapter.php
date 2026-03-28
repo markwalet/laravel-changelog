@@ -41,7 +41,7 @@ class XmlFeatureAdapter implements FeatureAdapter
 
         $element = simplexml_load_string($content);
 
-        $feature = new Feature();
+        $feature = new Feature;
 
         foreach ($element->children() as $change) {
             $type = $change->attributes()['type'];
@@ -64,7 +64,7 @@ class XmlFeatureAdapter implements FeatureAdapter
      */
     public function write(string $path, Feature $feature): void
     {
-        $xml = new DOMDocument();
+        $xml = new DOMDocument;
         $xml->formatOutput = true;
         $xml->encoding = 'UTF-8';
 

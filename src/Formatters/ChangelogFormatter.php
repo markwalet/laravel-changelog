@@ -7,14 +7,14 @@ use MarkWalet\Changelog\Release;
 abstract class ChangelogFormatter
 {
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected $config;
 
     /**
      * ChangelogFormatter constructor.
      *
-     * @param array $config
+     * @param array<string, mixed> $config
      */
     public function __construct(array $config = [])
     {

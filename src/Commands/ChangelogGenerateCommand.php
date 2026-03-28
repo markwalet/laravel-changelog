@@ -3,6 +3,7 @@
 namespace MarkWalet\Changelog\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Contracts\View\Factory as ViewFactory;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\ChangelogFormatterFactory;
 use MarkWalet\Changelog\Release;
@@ -70,12 +71,14 @@ class ChangelogGenerateCommand extends Command
      * Format the given lines to a string.
      *
      * @param string $content
-     * @return string|null
      * @throws Throwable
      */
-    private function view(string $content): ?string
+    private function view(string $content): string
     {
-        return view('changelog::changelog', compact('content'))->render();
+        /** @var ViewFactory $view */
+        $view = view();
+
+        return $view->make('changelog::changelog', compact('content'))->render();
     }
 
     /**

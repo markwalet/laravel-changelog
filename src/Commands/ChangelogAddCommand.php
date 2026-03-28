@@ -57,7 +57,7 @@ class ChangelogAddCommand extends Command
      * @param string $path
      * @param Feature $feature
      */
-    private function write(FeatureAdapter $adapter, string $path, Feature $feature)
+    private function write(FeatureAdapter $adapter, string $path, Feature $feature): void
     {
         $adapter->write($path, $feature);
     }

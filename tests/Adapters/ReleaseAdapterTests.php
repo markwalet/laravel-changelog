@@ -11,8 +11,11 @@ use PHPUnit\Framework\Attributes\Test;
 trait ReleaseAdapterTests
 {
     public $readPath = __DIR__.'/../test-data';
+
     public $readVersion = 'multiple';
+
     public $readAll = __DIR__.'/../test-data/releases';
+
     public $readNested = __DIR__.'/../test-data/nested-test';
 
     /**
