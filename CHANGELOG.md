@@ -7,10 +7,12 @@
 - Increase minimum Laravel version to 12.
 - Commands now return explicit integer success and failure status codes.
 - Updated dependabot configuration.
+- Add PHPStan and Pint tooling with GitHub Actions static analysis checks.
 
 ### Fixed
 - Make release moves deterministic and restore the unreleased `.gitkeep` placeholder.
 - Re-enable the fake release adapter test coverage for release execution.
+- Fix type annotations and formatting issues required by the new static analysis checks.
 
 ### Removed
 - Removed support for Laravel 10.
