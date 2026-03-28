@@ -7,6 +7,10 @@
 - Increase minimum Laravel version to 12.
 - Commands now return explicit integer success and failure status codes.
 
+### Fixed
+- Make release moves deterministic and restore the unreleased `.gitkeep` placeholder.
+- Re-enable the fake release adapter test coverage for release execution.
+
 ### Removed
 - Removed support for Laravel 10.
 - Removed support for Laravel 11.
