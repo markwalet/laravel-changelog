@@ -17,7 +17,7 @@ class XmlReleaseAdapterTest extends LaravelTestCase
      */
     public function adapter(): XmlReleaseAdapter
     {
-        return new XmlReleaseAdapter();
+        return new XmlReleaseAdapter;
     }
 
     #[Test]

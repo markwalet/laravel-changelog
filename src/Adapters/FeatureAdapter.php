@@ -17,7 +17,7 @@ interface FeatureAdapter
     /**
      * Store a feature.
      *
-     * @param string  $path
+     * @param string $path
      * @param Feature $feature
      */
     public function write(string $path, Feature $feature): void;

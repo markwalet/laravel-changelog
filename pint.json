@@ -1,0 +1,37 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "assign_null_coalescing_to_coalesce_equal": true,
+        "blank_line_before_statement": true,
+        "class_attributes_separation": {
+            "elements": {
+                "const": "none",
+                "method": "one",
+                "property": "one",
+                "trait_import": "none"
+            }
+        },
+        "fully_qualified_strict_types": {
+            "import_symbols": true,
+            "leading_backslash_in_global_namespace": false,
+            "phpdoc_tags": [
+                "method",
+                "param",
+                "return",
+                "throws",
+                "type",
+                "var"
+            ]
+        },
+        "global_namespace_import": true,
+        "phpdoc_separation": false,
+        "phpdoc_summary": true,
+        "phpdoc_align": {
+            "align": "left",
+            "spacing": {
+                "param": 1
+            }
+        },
+        "no_superfluous_phpdoc_tags": false
+    }
+}

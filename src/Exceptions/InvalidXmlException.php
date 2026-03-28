@@ -4,6 +4,4 @@ namespace MarkWalet\Changelog\Exceptions;
 
 use RuntimeException;
 
-class InvalidXmlException extends RuntimeException
-{
-}
+class InvalidXmlException extends RuntimeException {}

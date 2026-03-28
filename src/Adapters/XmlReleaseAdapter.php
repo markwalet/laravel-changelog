@@ -25,7 +25,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
      */
     public function __construct()
     {
-        $this->featureAdapter = new XmlFeatureAdapter();
+        $this->featureAdapter = new XmlFeatureAdapter;
     }
 
     /**
@@ -121,7 +121,7 @@ class XmlReleaseAdapter implements ReleaseAdapter
      *
      * @param string $path
      * @param string $version
-     * @return Collection<SplFileInfo>
+     * @return Collection<int, SplFileInfo>
      */
     private function filesForRelease(string $path, string $version): Collection
     {

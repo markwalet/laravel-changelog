@@ -35,7 +35,7 @@ class ChangelogCurrentCommandTest extends LaravelTestCase
                 return $branch === 'fake-path/unreleased/test-branch.xml';
             });
 
-            $adapter->allows('read')->andReturn(tap(new Feature(), function (Feature $feature) {
+            $adapter->allows('read')->andReturn(tap(new Feature, function (Feature $feature) {
                 $feature->add(new Change('added', 'Added a new feature.'));
                 $feature->add(new Change('fixed', 'Fixed a bug.'));
             }));
