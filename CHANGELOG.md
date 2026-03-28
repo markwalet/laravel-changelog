@@ -1,6 +1,6 @@
 # Release Notes
 
-## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.12.0...master)
+## [Unreleased](https://github.com/markwalet/laravel-changelog/compare/v1.12.0...main)
 
 ### Changed
 - Increase minimum PHP version to 8.2.
