@@ -6,6 +6,7 @@
 - Increase minimum PHP version to 8.2.
 - Increase minimum Laravel version to 12.
 - Commands now return explicit integer success and failure status codes.
+- Updated dependabot configuration.
 
 ### Fixed
 - Make release moves deterministic and restore the unreleased `.gitkeep` placeholder.
