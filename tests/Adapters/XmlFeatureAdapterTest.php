@@ -76,4 +76,15 @@ class XmlFeatureAdapterTest extends LaravelTestCase
 
         $adapter->read($path);
     }
+
+    #[Test]
+    public function it_throws_an_exception_when_the_xml_cannot_be_parsed(): void
+    {
+        $adapter = $this->adapter();
+        $path = __DIR__.'/../test-data/invalid-syntax.xml';
+
+        $this->expectException(InvalidXmlException::class);
+
+        $adapter->read($path);
+    }
 }

@@ -5,10 +5,12 @@ namespace MarkWalet\Changelog\Tests\Commands;
 use MarkWalet\Changelog\Adapters\FakeFeatureAdapter;
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 use MarkWalet\GitState\Drivers\FakeGitDriver;
 use MarkWalet\GitState\Drivers\GitDriver;
+use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogAddCommandTest extends LaravelTestCase
@@ -119,5 +121,22 @@ class ChangelogAddCommandTest extends LaravelTestCase
         $this->assertEquals('Removed an old feature.', $changes[1]->message());
         $this->assertEquals('changed', $changes[2]->type());
         $this->assertEquals('Changed an existing feature.', $changes[2]->message());
+    }
+
+    #[Test]
+    public function it_shows_a_warning_when_the_existing_changelog_contains_invalid_xml(): void
+    {
+        $this->app['config']['changelog.path'] = 'test-path';
+        $this->fakeBranch('test-branch');
+        $this->mock(FeatureAdapter::class, function (MockInterface $adapter) {
+            $adapter->allows('exists')->andReturn(true);
+            $adapter->allows('read')->andThrow(new InvalidXmlException('Invalid xml in "test-path/unreleased/test-branch.xml".'));
+        });
+
+        $this->artisan('changelog:add', [
+            '--type' => 'changed',
+            '--message' => 'Changed an existing feature.',
+        ])->expectsOutput('Invalid xml in "test-path/unreleased/test-branch.xml".')
+            ->assertExitCode(1);
     }
 }

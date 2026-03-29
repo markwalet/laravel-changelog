@@ -5,9 +5,11 @@ namespace MarkWalet\Changelog\Tests\Commands;
 use MarkWalet\Changelog\Adapters\FakeReleaseAdapter;
 use MarkWalet\Changelog\Adapters\ReleaseAdapter;
 use MarkWalet\Changelog\Change;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Release;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
+use Mockery\MockInterface;
 use PHPUnit\Framework\Attributes\Test;
 
 class ChangelogListCommandTest extends LaravelTestCase
@@ -54,5 +56,18 @@ class ChangelogListCommandTest extends LaravelTestCase
             ->expectsOutput('  - Added: Added helper commands.')
             ->expectsOutput('  - Removed: Removed unused trait.')
             ->assertExitCode(0);
+    }
+
+    #[Test]
+    public function it_shows_a_warning_when_a_release_contains_invalid_xml(): void
+    {
+        $this->app['config']['changelog.path'] = 'fake-folder';
+        $this->mock(ReleaseAdapter::class, function (MockInterface $adapter) {
+            $adapter->allows('all')->andThrow(new InvalidXmlException('Invalid xml in "fake-folder/unreleased/example.xml".'));
+        });
+
+        $this->artisan('changelog:list')
+            ->expectsOutput('Invalid xml in "fake-folder/unreleased/example.xml".')
+            ->assertExitCode(1);
     }
 }

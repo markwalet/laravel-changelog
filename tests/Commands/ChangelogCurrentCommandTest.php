@@ -4,6 +4,7 @@ namespace MarkWalet\Changelog\Tests\Commands;
 
 use MarkWalet\Changelog\Adapters\FeatureAdapter;
 use MarkWalet\Changelog\Change;
+use MarkWalet\Changelog\Exceptions\InvalidXmlException;
 use MarkWalet\Changelog\Feature;
 use MarkWalet\Changelog\Tests\LaravelTestCase;
 use MarkWalet\GitState\Drivers\GitDriver;
@@ -58,6 +59,19 @@ class ChangelogCurrentCommandTest extends LaravelTestCase
 
         $this->artisan('changelog:current')
             ->expectsOutput('No changes found for test-branch')
+            ->assertExitCode(1);
+    }
+
+    #[Test]
+    public function it_shows_a_warning_when_the_current_changelog_contains_invalid_xml(): void
+    {
+        $this->mock(FeatureAdapter::class, function (MockInterface $adapter) {
+            $adapter->allows('exists')->andReturn(true);
+            $adapter->allows('read')->andThrow(new InvalidXmlException('Invalid xml in "fake-path/unreleased/test-branch.xml".'));
+        });
+
+        $this->artisan('changelog:current')
+            ->expectsOutput('Invalid xml in "fake-path/unreleased/test-branch.xml".')
             ->assertExitCode(1);
     }
 }
