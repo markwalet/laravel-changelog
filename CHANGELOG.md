@@ -20,6 +20,7 @@
 ### Removed
 - Removed support for Laravel 10.
 - Removed support for Laravel 11.
+- Removed StyleCI integration.
 
 ## [v1.12.0 (2026-03-26)](https://github.com/markwalet/laravel-changelog/compare/v1.11.0...v1.12.0)
 
