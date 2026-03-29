@@ -5,6 +5,7 @@ namespace MarkWalet\Changelog\Adapters;
 use DOMDocument;
 use Illuminate\Contracts\Filesystem\FileNotFoundException as FilesystemFileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
+use LibXMLError;
 use MarkWalet\Changelog\Change;
 use MarkWalet\Changelog\Exceptions\FileNotFoundException;
 use MarkWalet\Changelog\Exceptions\InvalidXmlException;
@@ -43,7 +44,7 @@ class XmlFeatureAdapter implements FeatureAdapter
         $element = simplexml_load_string($content);
         if ($element === false) {
             $error = collect(libxml_get_errors())
-                ->map(fn (\LibXMLError $error) => trim($error->message))
+                ->map(fn (LibXMLError $error) => trim($error->message))
                 ->filter()
                 ->implode(', ');
 
