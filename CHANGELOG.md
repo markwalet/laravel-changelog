@@ -13,9 +13,7 @@
 - Make release moves deterministic and restore the unreleased `.gitkeep` placeholder.
 - Re-enable the fake release adapter test coverage for release execution.
 - Fix type annotations and formatting issues required by the new static analysis checks.
-
-### Fixed
-- Catch invalid XML parsing errors in commands and show a warning instead of throwing an exception.
+- Catch invalid XML parsing errors in commands and show a warning instead of throwing an exception ([#18](https://github.com/markwalet/laravel-changelog/issues/18)).
 
 ### Removed
 - Removed support for Laravel 10.
